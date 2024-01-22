@@ -14,7 +14,6 @@ function App() {
       <AuthProvider>
         <Router>
           <ToastContainer />
-
           <Navbar />
           <Switch>
             <Route path="/" exact component={HomePage} />

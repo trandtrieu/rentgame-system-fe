@@ -3,29 +3,39 @@ import { Link, useHistory } from "react-router-dom/cjs/react-router-dom";
 import { AuthContext } from "../context/authContext";
 import { useCookies } from "react-cookie";
 import { toast } from "react-toastify";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 export default function Register() {
   const history = useHistory();
   const { setAccountId, setToken } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
   const [signupFormData, setSignupFormData] = useState({
     username: "",
     mail: "",
     password: "",
   });
+
   const [loginFormData, setLoginFormData] = useState({
     username: "",
     password: "",
-    rememberMe: false, // Added rememberMe state
+    rememberMe: false,
   });
+
   const [errors, setErrors] = useState({
     mail: "",
     password: "",
     username: "",
   });
+
   const [cookies, setCookie, removeCookie] = useCookies([
     "username",
     "password",
   ]);
+
   const handleSignupChange = (e) => {
     const { name, value } = e.target;
     setSignupFormData({
@@ -52,28 +62,34 @@ export default function Register() {
     }));
   };
 
+  const validateForm = () => {
+    const { mail, password, username } = signupFormData;
+    const validationErrors = {};
+
+    if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(mail)) {
+      validationErrors.mail = "Invalid email address";
+    }
+
+    if (!/^.{8,16}$/.test(password)) {
+      validationErrors.password =
+        "Password must be between 8 and 16 characters";
+    }
+
+    if (!/^[a-zA-Z0-9]{8,16}$/.test(username)) {
+      validationErrors.username =
+        "Username must be between 8 and 16 characters";
+    }
+
+    setErrors(validationErrors);
+    return Object.keys(validationErrors).length === 0;
+  };
+
   const handleSignupSubmit = async (e) => {
     e.preventDefault();
 
-    const { mail, password, username } = signupFormData;
-    console.log("signupFormData", signupFormData);
-    console.log("errors", errors);
-    const {
-      mail: mailError,
-      password: passwordError,
-      username: usernameError,
-    } = errors;
+    const isValid = validateForm();
 
-    if (
-      !mail ||
-      !password ||
-      !username ||
-      mailError ||
-      passwordError ||
-      usernameError
-    ) {
-      console.log("signupFormData", signupFormData);
-      console.log("errors", errors);
+    if (!isValid) {
       toast.error("Please fix the form errors!!!");
       return;
     }
@@ -87,20 +103,23 @@ export default function Register() {
     });
 
     if (response.status === 200) {
-      setLoginFormData({
-        ...loginFormData,
-        message: "User registered successfully!",
-      });
+      setSuccessMessage("User registered successfully!");
       toast.success("User registered successfully!");
+      setSignupFormData({ username: "", mail: "", password: "" });
       history.push("/login");
     } else {
-      setLoginFormData({
-        ...loginFormData,
-        message: "Registration failed. Please check your input.",
-      });
-      toast.error("Registration failed. Please check your input.");
+      const errorMessage = await response.text();
+      setError(errorMessage || "Registration failed. Please check your input.");
+      toast.error(
+        errorMessage || "Registration failed. Please check your input."
+      );
     }
   };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <>
       <section className="sign-in-section pb-120 pt-120 mt-sm-15 mt-10">
@@ -111,8 +130,12 @@ export default function Register() {
                 <h1 className="tcn-1 text-center cursor-scale growUp mb-10">
                   SIGN UP
                 </h1>
+                {error && <div className="error-message">{error}</div>}
+                {successMessage && (
+                  <div className="success-message">{successMessage}</div>
+                )}
                 <form onSubmit={handleSignupSubmit} className="sign-in-form">
-                  <div className="single-input mb-6">
+                  <div className="single-input mb-3">
                     <input
                       type="text"
                       placeholder="Enter your Username"
@@ -120,9 +143,13 @@ export default function Register() {
                       name="username"
                       id="username"
                     />
+                    {errors.username && (
+                      <div className="error-message text-danger">
+                        {errors.username}
+                      </div>
+                    )}
                   </div>
-
-                  <div className="single-input mb-6">
+                  <div className="single-input mb-3">
                     <input
                       type="email"
                       placeholder="Enter your email"
@@ -130,15 +157,38 @@ export default function Register() {
                       name="mail"
                       id="mail"
                     />
+                    {errors.mail && (
+                      <div className="error-message text-danger">
+                        {errors.mail}
+                      </div>
+                    )}
                   </div>
-                  <div className="single-input mb-6">
-                    <input
-                      type="password"
-                      placeholder="Enter your password"
-                      onChange={handleSignupChange}
-                      name="password"
-                      id="password"
-                    />
+                  <div className="single-input mb-3">
+                    <div className="password-input">
+                      <input
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Enter your password"
+                        onChange={handleSignupChange}
+                        name="password"
+                        id="password"
+                      />
+                      <button
+                        type="button"
+                        onClick={togglePasswordVisibility}
+                        className="toggle-password-btn"
+                      >
+                        {showPassword ? (
+                          <FontAwesomeIcon icon={faEyeSlash} />
+                        ) : (
+                          <FontAwesomeIcon icon={faEye} />
+                        )}
+                      </button>
+                    </div>
+                    {errors.password && (
+                      <div className="error-message text-danger">
+                        {errors.password}
+                      </div>
+                    )}
                   </div>
                   <div className="text-center">
                     <button
