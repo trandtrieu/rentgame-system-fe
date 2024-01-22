@@ -1,20 +1,26 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import LoginComponent from "./components/login";
 import { AuthProvider } from "./context/authContext";
-import Navbar from "./layouts/navbar";
-// import Home from "./components/home";
+import Navbar from "./components/navbar";
+import HomePage from "./components/HomePage";
+import Login from "./layouts/Login";
+import Register from "./layouts/Register";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <>
       <AuthProvider>
         <Router>
+          <ToastContainer />
+
           <Navbar />
           <Switch>
-            <Route path="/" exact component={Navbar} />
-            <Route path="/home" component={Navbar} />
-            <Route path="/login" component={LoginComponent} />{" "}
+            <Route path="/" exact component={HomePage} />
+            <Route path="/home" component={HomePage} />
+            <Route path="/login" component={Login} />
+            <Route path="/register" component={Register} />
           </Switch>
         </Router>
       </AuthProvider>

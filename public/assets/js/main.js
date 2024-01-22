@@ -21,101 +21,101 @@
 22 -> magnific popup
 */
 
-
-
 $(document).ready(() => {
   "use strict";
 
   // 00 -> preloader
-  setTimeout(() => {
-    document.querySelector(".preloader").style.display = "none";
-  }, 1000);
+  // setTimeout(() => {
+  //   document.querySelector(".preloader").style.display = "none";
+  // }, 1000);
 
   // 01 -> Navbar toggle
-  $(".navbar-toggle-btn").on("click", function () {
-    $(".navbar-toggle-item").toggleClass("open");
-    $(this).toggleClass("open");
-  });
-  $(window).on("scroll", function () {
-    var scroll = $(window).scrollTop();
-    if (scroll < 50) {
-      $(".header-section").removeClass("fixed-header");
-    } else {
-      $(".header-section").addClass("fixed-header");
-    }
-  });
-  $('.menu-item button').on('click', function () {
-    $(this).siblings("ul").slideToggle(300);
-  });
+  // $(".navbar-toggle-btn").on("click", function () {
+  //   $(".navbar-toggle-item").toggleClass("open");
+  //   $(this).toggleClass("open");
+  // });
+  // $(window).on("scroll", function () {
+  //   var scroll = $(window).scrollTop();
+  //   if (scroll < 50) {
+  //     $(".header-section").removeClass("fixed-header");
+  //   } else {
+  //     $(".header-section").addClass("fixed-header");
+  //   }
+  // });
+  // $('.menu-item button').on('click', function () {
+  //   $(this).siblings("ul").slideToggle(300);
+  // });
 
-  // Navbar Auto Active Class 
-  var curUrl = $(location).attr('href');
+  // Navbar Auto Active Class
+  var curUrl = $(location).attr("href");
   var terSegments = curUrl.split("/");
   var desired_segment = terSegments[terSegments.length - 1];
   var removeGarbage = desired_segment.split(".html")[0] + ".html";
   var checkLink = $('.menu-link a[href="' + removeGarbage + '"]');
-  var targetClass = checkLink.addClass('active');
-  targetClass.parents('.menu-item').addClass('active');
+  var targetClass = checkLink.addClass("active");
+  targetClass.parents(".menu-item").addClass("active");
 
   // 03 -> search toggle
   $(".search-toggle-btn").on("click", function () {
     $(".search-bar").toggleClass("open");
   });
 
-  // 04 -> Box hover effect Style 
-  const targetBtn = document.querySelectorAll('.box-style')
+  // 04 -> Box hover effect Style
+  const targetBtn = document.querySelectorAll(".box-style");
   if (targetBtn) {
     targetBtn.forEach((element) => {
-      element.addEventListener('mousemove', (e) => {
-        const x = e.offsetX + 'px';
-        const y = e.offsetY + 'px';
-        element.style.setProperty('--x', x);
-        element.style.setProperty('--y', y);
-      })
-    })
+      element.addEventListener("mousemove", (e) => {
+        const x = e.offsetX + "px";
+        const y = e.offsetY + "px";
+        element.style.setProperty("--x", x);
+        element.style.setProperty("--y", y);
+      });
+    });
   }
 
   // 05 -> Connect wallet toggle
   $(".wallet-btn").on("click", function () {
     $(".connect-wallet-section").toggleClass("active");
-  })
+  });
   $(".wallet-close-btn").on("click", function () {
     $(".connect-wallet-section").toggleClass("active");
-  })
+  });
 
   $(".connect-wallet-overlay").on("click", function (e) {
     if ($(e.target).hasClass("connect-wallet-overlay")) {
       $(".connect-wallet-section").toggleClass("active");
     }
-  })
+  });
 
   // 06 -> chat box height adjust
-  $('.chat-body').scrollTop($(document).height());
+  $(".chat-body").scrollTop($(document).height());
 
-  // 07 -> input file 
+  // 07 -> input file
   $(".add-file-btn").on("click", function () {
-    $("#add-file-input").click()
-  })
+    $("#add-file-input").click();
+  });
 
-  // 08 -> chat list toggle 
+  // 08 -> chat list toggle
   $(".chat-list-toggle-btn").on("click", function () {
     $(".chat-list-area").toggleClass("open");
-  })
+  });
 
   // 09 -> notification toggle
   $(".ntf-btn").on("click", function () {
     $(".notification-area").toggleClass("open");
-  })
+  });
 
   // 10 -> header profile toggle
   $(".header-profile").on("click", function () {
     $(".user-account-popup").toggleClass("open");
-  })
+  });
 
   // 11 -> hide toggle items
   $(document).on("click", function (event) {
     // navbar toggle hide
-    if (!$(event.target).closest(".navbar-toggle-item, .navbar-toggle-btn").length) {
+    if (
+      !$(event.target).closest(".navbar-toggle-item, .navbar-toggle-btn").length
+    ) {
       $(".navbar-toggle-item").removeClass("open");
       $(".navbar-toggle-btn").removeClass("open");
     }
@@ -128,23 +128,27 @@ $(document).ready(() => {
       $(".notification-area").removeClass("open");
     }
     // profile popup hide
-    if (!$(event.target).closest(".user-account-popup, .header-profile").length) {
+    if (
+      !$(event.target).closest(".user-account-popup, .header-profile").length
+    ) {
       $(".user-account-popup").removeClass("open");
     }
     // chat list hide
-    if (!$(event.target).closest(".chat-list-area, .chat-list-toggle-btn").length) {
+    if (
+      !$(event.target).closest(".chat-list-area, .chat-list-toggle-btn").length
+    ) {
       $(".chat-list-area").removeClass("open");
     }
-  })
+  });
 
   // 12 -> 3D swiper effect
-  var swiper3D = new Swiper('.swiper-3d-container', {
-    slidesPerView: 'auto',
+  var swiper3D = new Swiper(".swiper-3d-container", {
+    slidesPerView: "auto",
     loop: true,
     centeredSlides: true,
     speed: 1000,
     freeMode: true,
-    effect: 'coverflow',
+    effect: "coverflow",
     autoplay: {
       delay: 3000,
     },
@@ -157,26 +161,26 @@ $(document).ready(() => {
     },
     navigation: {
       prevEl: ".swiper-3d-button-prev",
-      nextEl: ".swiper-3d-button-next"
+      nextEl: ".swiper-3d-button-next",
     },
     breakpoints: {
       1400: {
-        slidesPerView: 4
+        slidesPerView: 4,
       },
       1024: {
-        slidesPerView: 3
+        slidesPerView: 3,
       },
       768: {
-        slidesPerView: 2.4
+        slidesPerView: 2.4,
       },
       640: {
-        slidesPerView: 2
-      }
-    }
+        slidesPerView: 2,
+      },
+    },
   });
 
   // 13 -> top player slider
-  var topPlayerSwiper = new Swiper('.swiper-top-player', {
+  var topPlayerSwiper = new Swiper(".swiper-top-player", {
     slidesPerView: "auto",
     loop: true,
     centeredSlides: true,
@@ -188,20 +192,20 @@ $(document).ready(() => {
     },
     navigation: {
       prevEl: ".top-player-prev",
-      nextEl: ".top-player-next"
+      nextEl: ".top-player-next",
     },
     breakpoints: {
       1024: {
-        slidesPerView: 3
+        slidesPerView: 3,
       },
       768: {
-        slidesPerView: 2
+        slidesPerView: 2,
       },
-    }
+    },
   });
 
   // 14 -> game swiper
-  var gameSwiper = new Swiper('.game-swiper', {
+  var gameSwiper = new Swiper(".game-swiper", {
     slidesPerView: 1,
     loop: true,
     spaceBetween: 24,
@@ -216,18 +220,18 @@ $(document).ready(() => {
     },
     breakpoints: {
       1200: {
-        slidesPerView: 4
+        slidesPerView: 4,
       },
       992: {
-        slidesPerView: 3
+        slidesPerView: 3,
       },
       575: {
-        slidesPerView: 2
+        slidesPerView: 2,
       },
-    }
+    },
   });
 
-  var gameSwiper2 = new Swiper('.game-swiper2', {
+  var gameSwiper2 = new Swiper(".game-swiper2", {
     slidesPerView: 1,
     loop: true,
     spaceBetween: 24,
@@ -242,18 +246,18 @@ $(document).ready(() => {
     },
     breakpoints: {
       1400: {
-        slidesPerView: 6
+        slidesPerView: 6,
       },
       1024: {
-        slidesPerView: 4
+        slidesPerView: 4,
       },
       768: {
-        slidesPerView: 3
+        slidesPerView: 3,
       },
       575: {
-        slidesPerView: 2
+        slidesPerView: 2,
       },
-    }
+    },
   });
 
   // 15 -> banner swiper
@@ -278,12 +282,12 @@ $(document).ready(() => {
     targetTab.find(".tablinks .nav-links").each(function () {
       var navBtn = targetTab.find(".tablinks .nav-links");
       navBtn.click(function () {
-        navBtn.removeClass('active');
-        $(this).addClass('active');
+        navBtn.removeClass("active");
+        $(this).addClass("active");
         var indexNum = $(this).closest("li").index();
         var tabcontent = targetTab.find(".tabcontents .tabitem");
-        $(tabcontent).removeClass('active');
-        $(tabcontent).eq(indexNum).addClass('active');
+        $(tabcontent).removeClass("active");
+        $(tabcontent).eq(indexNum).addClass("active");
       });
     });
   });
@@ -324,7 +328,6 @@ $(document).ready(() => {
     //end
     const countDown = new Date(endingDate).getTime(),
       x = setInterval(function () {
-
         const now = new Date().getTime(),
           distance = countDown - now;
         const days = document.getElementById("days");
@@ -332,25 +335,25 @@ $(document).ready(() => {
         const minutes = document.getElementById("minutes");
         const seconds = document.getElementById("seconds");
         if (days && hours && minutes && seconds) {
-          days.innerText = Math.floor(distance / (day)),
-            hours.innerText = Math.floor((distance % (day)) / (hour)),
-            minutes.innerText = Math.floor((distance % (hour)) / (minute)),
-            seconds.innerText = Math.floor((distance % (minute)) / second);
+          (days.innerText = Math.floor(distance / day)),
+            (hours.innerText = Math.floor((distance % day) / hour)),
+            (minutes.innerText = Math.floor((distance % hour) / minute)),
+            (seconds.innerText = Math.floor((distance % minute) / second));
         }
         if (distance < 0) {
           clearInterval(x);
         }
-      }, 0)
-  }());
+      }, 0);
+  })();
 
   // 19 -> earning chart (apex line chart)
   var options = {
-    colors: ['#F62F1A', '#F6471C'],
+    colors: ["#F62F1A", "#F6471C"],
     tooltip: {
-      theme: 'dark',
+      theme: "dark",
       y: {
         formatter: function (val) {
-          return "$" + val
+          return "$" + val;
         },
         title: {
           show: false,
@@ -358,50 +361,67 @@ $(document).ready(() => {
       },
       x: {
         show: false,
-      }
+      },
     },
-    series: [{
-      name: "Earnings",
-      data: [0, 0, 150, 0, 0, 0, 0, 50, 0, 0, 0, 0]
-    }],
+    series: [
+      {
+        name: "Earnings",
+        data: [0, 0, 150, 0, 0, 0, 0, 50, 0, 0, 0, 0],
+      },
+    ],
     chart: {
       height: 150,
-      type: 'line',
+      type: "line",
       zoom: {
-        enabled: false
+        enabled: false,
       },
       toolbar: {
-        show: false
+        show: false,
       },
       sparkline: {
         enabled: true,
         height: 100,
-        width: '100%',
-        colors: ['#F62F1A', '#F6471C'],
-      }
+        width: "100%",
+        colors: ["#F62F1A", "#F6471C"],
+      },
     },
     grid: {
       show: false,
     },
     xaxis: {
       // show: false,
-      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      categories: [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ],
       labels: {
-        show: false
-      }
+        show: false,
+      },
     },
     yaxis: {
       labels: {
-        show: false
+        show: false,
       },
     },
     markers: {
-      colors: ['#F76D1F'],
+      colors: ["#F76D1F"],
     },
-
   };
   if (document.querySelector("#earning-chart")) {
-    var chart = new ApexCharts(document.querySelector("#earning-chart"), options);
+    var chart = new ApexCharts(
+      document.querySelector("#earning-chart"),
+      options
+    );
     chart.render();
   }
 
@@ -419,5 +439,4 @@ $(document).ready(() => {
       fixedContentPos: false,
     });
   }
-
 });

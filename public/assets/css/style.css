@@ -22,6 +22,7 @@
 @import "swiper-bundle.min.css";
 @import "magnific-popup.js_1.1.0_magnific-popup.min.css";
 @import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&amp;family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap");
+
 :root {
   --body-font: "Poppins", sans-serif;
   --head-font: "Chakra Petch", sans-serif;
@@ -134,42 +135,42 @@ footer {
 
 .fs-one,
 h1,
-h1 > a {
+h1>a {
   font-size: 48px;
   line-height: 120%;
 }
 
 .fs-two,
 h2,
-h2 > a {
+h2>a {
   font-size: 40px;
   line-height: 120%;
 }
 
 .fs-three,
 h3,
-h3 > a {
+h3>a {
   font-size: 32px;
   line-height: 120%;
 }
 
 .fs-four,
 h4,
-h4 > a {
+h4>a {
   font-size: 24px;
   line-height: 130%;
 }
 
 .fs-five,
 h5,
-h5 > a {
+h5>a {
   font-size: 20px;
   line-height: 130%;
 }
 
 .fs-six,
 h6,
-h6 > a {
+h6>a {
   font-size: 16px;
   line-height: 130%;
 }
@@ -227,6 +228,7 @@ h6,
   margin-bottom: 0;
   display: block;
 }
+
 h1 span,
 h2 span,
 h3 span,
@@ -286,6 +288,7 @@ button {
   display: inline-flex;
   gap: 8px;
 }
+
 a:hover,
 button:hover {
   color: var(--primary-color);
@@ -300,6 +303,7 @@ ul {
   margin: 0;
   padding: 0;
 }
+
 ul li {
   font-size: inherit;
   font-family: inherit;
@@ -307,19 +311,23 @@ ul li {
 }
 
 @media (max-width: 1199px) {
+
   h1,
-  h1 > a {
+  h1>a {
     font-size: 40px;
   }
+
   h2,
-  h2 > a {
+  h2>a {
     font-size: 34px;
   }
+
   h3,
-  h3 > a {
+  h3>a {
     font-size: 30px;
   }
 }
+
 .pt-120 {
   padding-top: 120px;
 }
@@ -341,125 +349,159 @@ ul li {
     font-size: 90px;
   }
 }
+
 @media (max-width: 991px) {
   .display-one {
     font-size: 72px;
   }
+
   .display-two {
     font-size: 64px;
   }
+
   .display-three {
     font-size: 56px;
   }
+
   .display-four {
     font-size: 48px;
   }
+
   .display-five {
     font-size: 42px;
   }
+
   .display-six {
     font-size: 32px;
   }
+
   .fs-one,
   h1,
-  h1 > a {
+  h1>a {
     font-size: 36px;
   }
+
   .fs-two,
   h2,
-  h2 > a {
+  h2>a {
     font-size: 30px;
   }
+
   .fs-three,
   h3,
-  h3 > a {
+  h3>a {
     font-size: 24px;
   }
+
   .fs-four,
   h4,
-  h4 > a {
+  h4>a {
     font-size: 20px;
   }
+
   .fs-five,
   h5,
-  h5 > a {
+  h5>a {
     font-size: 18px;
   }
+
   .fs-six,
   h6,
-  h6 > a {
+  h6>a {
     font-size: 15px;
   }
+
   .fs-seven {
     font-size: 16px;
   }
+
   .fs-2xl {
     font-size: 22px;
   }
+
   .pt-120 {
     padding-top: 60px;
   }
+
   .pb-120 {
     padding-bottom: 60px;
   }
+
   .mt-120 {
     margin-top: 60px;
   }
+
   .mb-120 {
     margin-bottom: 60px;
   }
 }
+
 @media (max-width: 767px) {
   .display-one {
     font-size: 56px;
   }
 }
+
 @media (max-width: 575px) {
   .display-one {
     font-size: 48px;
   }
+
   .display-two {
     font-size: 40px;
   }
+
   .display-three {
     font-size: 36px;
   }
+
   .display-four {
     font-size: 30px;
   }
+
   .display-five {
     font-size: 24px;
   }
+
   .display-six {
     font-size: 20px;
   }
+
   .fs-2xl {
     font-size: 18px;
   }
+
   .pt-120 {
     padding-top: 50px;
   }
+
   .pb-120 {
     padding-bottom: 50px;
   }
+
   .mt-120 {
     margin-top: 50px;
   }
+
   .mb-120 {
     margin-bottom: 50px;
   }
 }
+
 @media (max-width: 480px) {
   .display-two {
     font-size: 36px;
   }
+
   h3 {
     font-size: 20px;
   }
+
   .fs-2xl {
     font-size: 16px;
   }
 }
+
 .lines .line {
   position: absolute;
   width: 1px;
@@ -469,6 +511,7 @@ ul li {
   background: rgba(255, 255, 255, 0.1);
   z-index: -1;
 }
+
 .lines .line::after {
   content: "";
   display: block;
@@ -481,63 +524,82 @@ ul li {
   animation: run 4s 0s infinite linear;
   animation-fill-mode: forwards;
 }
+
 .lines .line:nth-child(3n+1)::after {
   top: unset;
   animation: run 3s 0s infinite linear;
 }
+
 .lines .line:nth-child(1) {
   left: 6%;
 }
+
 .lines .line:nth-child(2) {
   left: 12%;
 }
+
 .lines .line:nth-child(3) {
   left: 18%;
 }
+
 .lines .line:nth-child(4) {
   left: 24%;
 }
+
 .lines .line:nth-child(5) {
   left: 30%;
 }
+
 .lines .line:nth-child(6) {
   left: 36%;
 }
+
 .lines .line:nth-child(7) {
   left: 42%;
 }
+
 .lines .line:nth-child(8) {
   left: 48%;
 }
+
 .lines .line:nth-child(9) {
   left: 54%;
 }
+
 .lines .line:nth-child(10) {
   left: 60%;
 }
+
 .lines .line:nth-child(11) {
   left: 66%;
 }
+
 .lines .line:nth-child(12) {
   left: 72%;
 }
+
 .lines .line:nth-child(13) {
   left: 78%;
 }
+
 .lines .line:nth-child(14) {
   left: 84%;
 }
+
 .lines .line:nth-child(15) {
   left: 90%;
 }
+
 .lines .line:nth-child(16) {
   left: 96%;
 }
+
 @media (max-width: 991px) {
   .lines .line:nth-child(2n) {
     display: none;
   }
 }
+
 .lines .line-vertical {
   position: absolute;
   width: 100%;
@@ -547,36 +609,47 @@ ul li {
   background: rgba(255, 255, 255, 0.1);
   z-index: -1;
 }
+
 .lines .line-vertical:nth-child(1) {
   top: 10%;
 }
+
 .lines .line-vertical:nth-child(2) {
   top: 20%;
 }
+
 .lines .line-vertical:nth-child(3) {
   top: 30%;
 }
+
 .lines .line-vertical:nth-child(4) {
   top: 40%;
 }
+
 .lines .line-vertical:nth-child(5) {
   top: 50%;
 }
+
 .lines .line-vertical:nth-child(6) {
   top: 60%;
 }
+
 .lines .line-vertical:nth-child(7) {
   top: 70%;
 }
+
 .lines .line-vertical:nth-child(8) {
   top: 80%;
 }
+
 .lines .line-vertical:nth-child(9) {
   top: 90%;
 }
+
 .lines .line-vertical:nth-child(10) {
   top: 100%;
 }
+
 @media (max-width: 767px) {
   .lines .line-vertical:nth-child(2n) {
     display: none;
@@ -587,10 +660,12 @@ ul li {
   0% {
     top: 0%;
   }
+
   100% {
     top: 100%;
   }
 }
+
 .btn-circle {
   width: 42px;
   min-width: 42px;
@@ -603,6 +678,7 @@ ul li {
   background: rgb(var(--p1));
   font-weight: normal;
 }
+
 @media (max-width: 575px) {
   .btn-circle {
     width: 30px;
@@ -632,6 +708,7 @@ ul li {
   transition: all 0.5s ease;
   border: 1px solid rgb(var(--p1));
 }
+
 .box-style::before {
   content: "";
   position: absolute;
@@ -645,19 +722,23 @@ ul li {
   height: 0;
   z-index: -1;
 }
+
 .box-style:hover::before {
   width: 200%;
   height: 200%;
 }
+
 .box-style.alt-box {
   max-width: 100%;
   width: 100%;
   max-height: 100%;
   height: 100%;
 }
+
 .box-style.alt-box::before {
   background: rgba(var(--p1), 0.2);
 }
+
 .box-style.alt-box:hover::before {
   width: 300%;
   height: 500%;
@@ -666,6 +747,7 @@ ul li {
 .btn-rounded-cus {
   background: rgba(var(--p1), 0.3);
 }
+
 .btn-rounded-cus::before {
   content: "";
   position: absolute;
@@ -678,11 +760,13 @@ ul li {
   z-index: -1;
   transition: width 0.5s ease-in-out;
 }
+
 @media (max-width: 1199px) {
   .btn-rounded-cus::before {
     display: none;
   }
 }
+
 .btn-rounded-cus:hover::before {
   width: 100%;
 }
@@ -701,6 +785,7 @@ ul li {
   border: 2px solid transparent;
   border-color: transparent rgb(var(--p1));
 }
+
 .btn-half-border:hover::before {
   border-color: rgb(var(--p1));
 }
@@ -731,6 +816,7 @@ ul li {
   position: relative;
   z-index: 1;
 }
+
 .swiper-btn::after {
   position: absolute;
   content: "";
@@ -741,9 +827,11 @@ ul li {
   border: 1px dashed rgb(var(--p1));
   z-index: -1;
 }
+
 .swiper-btn.box-style {
   border: unset;
 }
+
 @media (max-width: 767px) {
   .swiper-btn {
     width: 40px;
@@ -763,6 +851,7 @@ ul li {
   border-radius: 50px;
   transition: all 0.5s ease;
 }
+
 .claim-btn:hover {
   background: rgb(var(--p1));
 }
@@ -788,6 +877,7 @@ ul li {
   align-items: center;
   justify-content: center;
 }
+
 @media (max-width: 1199px) {
   .ntf-btn {
     width: 42px;
@@ -800,6 +890,7 @@ ul li {
     justify-content: center;
   }
 }
+
 @media (max-width: 575px) {
   .ntf-btn {
     width: 30px;
@@ -823,11 +914,13 @@ ul li {
   transition: all 0.3s ease-in-out;
   max-height: 100px;
 }
+
 @media (max-width: 1600px) {
   .header-section {
     background: rgb(var(--n0));
   }
 }
+
 @media (max-width: 991px) {
   .header-section .navbar-toggle-item {
     position: fixed;
@@ -837,55 +930,68 @@ ul li {
     top: 80px;
   }
 }
+
 @media (max-width: 991px) and (max-width: 575px) {
   .header-section .navbar-toggle-item {
     top: 60px;
   }
 }
+
 @media (max-width: 991px) {
   .header-section .navbar-toggle-item.open {
     transform: translateY(0);
   }
 }
+
 @media (min-width: 992px) {
   .header-section .navbar-toggle-item {
     display: initial !important;
   }
+
   .header-section .menu-link.active {
     color: rgb(var(--s1));
   }
 }
+
 .header-section .top-bar.alt {
   max-width: 260px;
   width: 100%;
 }
+
 .header-section .navbar-brand .logo1 {
   max-width: 48px;
 }
+
 .header-section .navbar-brand .logo2 {
   max-width: 180px;
 }
+
 @media (max-width: 991px) {
   .header-section .navbar-brand .logo1 {
     max-width: 36px;
   }
+
   .header-section .navbar-brand .logo2 {
     max-width: 140px;
   }
 }
+
 @media (max-width: 575px) {
   .header-section .navbar-brand .logo1 {
     max-width: 24px;
   }
+
   .header-section .navbar-brand .logo2 {
     display: none;
   }
 }
+
 .header-section .custom-nav .menu-item button {
   position: relative;
   all: unset;
   z-index: 1;
 }
+
 .header-section .custom-nav .menu-item button::after {
   position: absolute;
   content: "\ea5f";
@@ -897,21 +1003,26 @@ ul li {
   z-index: -1;
   transition: all 0.5s ease-in-out;
 }
+
 @media (max-width: 991px) {
   .header-section .custom-nav .menu-item button::after {
     z-index: 1;
     right: 0;
   }
 }
+
 .header-section .custom-nav .menu-item button:hover::after {
   transform: rotate(180deg);
 }
+
 .header-section .custom-nav .menu-item.active button {
   color: rgb(var(--s1));
 }
+
 .header-section .custom-nav .menu-link .active {
   color: rgb(var(--s1));
 }
+
 @media (max-width: 991px) {
   .header-section .custom-nav {
     display: grid;
@@ -923,26 +1034,32 @@ ul li {
     background: rgb(var(--n4));
     padding: 20px 10px;
   }
+
   .header-section .custom-nav .menu-item {
     position: relative;
   }
+
   .header-section .custom-nav .sub-menu {
     display: none;
     margin-left: 20px;
     padding: 5px 0;
   }
+
   .header-section .custom-nav .sub-menu .menu-link {
     padding: 5px 0;
   }
 }
+
 @media (min-width: 992px) {
   .header-section .custom-nav {
     display: flex;
     align-items: baseline;
   }
+
   .header-section .custom-nav .menu-item {
     position: relative;
   }
+
   .header-section .custom-nav .sub-menu {
     position: absolute;
     top: 30px;
@@ -958,15 +1075,18 @@ ul li {
     background: rgb(var(--n4));
     padding: 20px;
   }
+
   .header-section .custom-nav .sub-menu .menu-link {
     padding: 5px 0;
   }
-  .header-section .custom-nav .menu-item:hover > .sub-menu {
+
+  .header-section .custom-nav .menu-item:hover>.sub-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
   }
 }
+
 .header-section .navbar-toggle-btn {
   width: 36px;
   height: 28px;
@@ -977,6 +1097,7 @@ ul li {
   background: transparent;
   border: none;
 }
+
 .header-section .navbar-toggle-btn span {
   display: block;
   position: absolute;
@@ -989,43 +1110,56 @@ ul li {
   transform: rotate(0deg);
   transition: 0.3s ease-in-out;
 }
+
 .header-section .navbar-toggle-btn span:nth-child(1) {
   top: 0px;
 }
-.header-section .navbar-toggle-btn span:nth-child(2), .header-section .navbar-toggle-btn span:nth-child(3) {
+
+.header-section .navbar-toggle-btn span:nth-child(2),
+.header-section .navbar-toggle-btn span:nth-child(3) {
   top: 12px;
 }
+
 .header-section .navbar-toggle-btn span:nth-child(4) {
   top: 24px;
 }
+
 .header-section .navbar-toggle-btn.open span:nth-child(1) {
   top: 18px;
   width: 0%;
   left: 50%;
 }
+
 .header-section .navbar-toggle-btn.open span:nth-child(2) {
   transform: rotate(45deg);
 }
+
 .header-section .navbar-toggle-btn.open span:nth-child(3) {
   transform: rotate(-45deg);
 }
+
 .header-section .navbar-toggle-btn.open span:nth-child(4) {
   top: 18px;
   width: 0%;
   left: 50%;
 }
+
 @media (max-width: 575px) {
   .header-section .navbar-toggle-btn {
     width: 28px;
     height: 20px;
   }
-  .header-section .navbar-toggle-btn span:nth-child(2), .header-section .navbar-toggle-btn span:nth-child(3) {
+
+  .header-section .navbar-toggle-btn span:nth-child(2),
+  .header-section .navbar-toggle-btn span:nth-child(3) {
     top: 8px;
   }
+
   .header-section .navbar-toggle-btn span:nth-child(4) {
     top: 16px;
   }
 }
+
 .header-section .toggle-btn.box-style {
   width: 60px;
   min-width: 60px;
@@ -1036,6 +1170,7 @@ ul li {
   align-items: center;
   justify-content: center;
 }
+
 @media (max-width: 991px) {
   .header-section .toggle-btn.box-style {
     width: 42px;
@@ -1048,6 +1183,7 @@ ul li {
     justify-content: center;
   }
 }
+
 @media (max-width: 575px) {
   .header-section .toggle-btn.box-style {
     width: 30px;
@@ -1060,6 +1196,7 @@ ul li {
     justify-content: center;
   }
 }
+
 .header-section .header-profile .profile-wrapper .img-area {
   width: 60px;
   min-width: 60px;
@@ -1070,6 +1207,7 @@ ul li {
   align-items: center;
   justify-content: center;
 }
+
 @media (max-width: 991px) {
   .header-section .header-profile .profile-wrapper .img-area {
     width: 48px;
@@ -1082,6 +1220,7 @@ ul li {
     justify-content: center;
   }
 }
+
 @media (max-width: 575px) {
   .header-section .header-profile .profile-wrapper .img-area {
     width: 36px;
@@ -1094,6 +1233,7 @@ ul li {
     justify-content: center;
   }
 }
+
 @media (max-width: 991px) {
   .header-section .search-bar {
     position: fixed;
@@ -1101,13 +1241,16 @@ ul li {
     left: 0;
     transition: all 0.3s ease-in-out;
   }
+
   .header-section .search-bar.open {
     top: 100%;
   }
+
   .header-section .search-bar.open .input-area {
     background: rgb(var(--n4));
   }
 }
+
 .header-section.fixed-header {
   background: rgb(var(--n4));
 }
@@ -1137,6 +1280,7 @@ ul li {
   transform-origin: center center;
   z-index: 1000;
 }
+
 @media (max-width: 991px) {
   .cursor {
     display: none;
@@ -1249,6 +1393,7 @@ ul li {
   margin-right: 10px;
   vertical-align: middle;
 }
+
 .list-icon li:first-child::before {
   display: none;
 }
@@ -1257,6 +1402,7 @@ ul li {
   position: relative;
   padding-left: 24px;
 }
+
 .dot-icon::before {
   content: "";
   position: absolute;
@@ -1269,6 +1415,7 @@ ul li {
   border-radius: 50%;
   background: rgb(var(--p1));
 }
+
 .dot-icon.alt-icon::before {
   background: rgb(var(--n1));
   width: 6px;
@@ -1280,9 +1427,11 @@ ul li {
   height: 1px;
   background: rgb(var(--n1), 0.2);
 }
+
 .hr-line.line2 {
   background: rgb(var(--n0), 0.8);
 }
+
 .hr-line.line3 {
   background: rgb(var(--n3), 0.6);
 }
@@ -1302,6 +1451,7 @@ ul li {
 .br {
   border-right: 1px solid rgb(var(--n3));
 }
+
 @media (max-width: 991px) {
   .br.br-res {
     border-right: 0;
@@ -1320,9 +1470,11 @@ ul li {
   width: 100%;
   transition: all 0.3s;
 }
+
 .single-input:focus-within {
   outline: 1px solid rgb(var(--p1));
 }
+
 .single-input input {
   width: 100%;
   border: 0;
@@ -1347,9 +1499,11 @@ ul li {
   width: 100%;
   transition: all 0.3s;
 }
+
 .input-area:focus-within {
   outline: 1px solid rgb(var(--p1));
 }
+
 .input-area input {
   width: 100%;
   border: 0;
@@ -1357,9 +1511,11 @@ ul li {
   color: rgb(var(--n1));
   outline: 0;
 }
+
 .input-area input::-moz-placeholder {
   color: rgb(var(--n6));
 }
+
 .input-area input::placeholder {
   color: rgb(var(--n6));
 }
@@ -1369,9 +1525,11 @@ ul li {
   padding-left: 30px;
   cursor: pointer;
 }
+
 .custom-checkbox input {
   opacity: 0;
 }
+
 .custom-checkbox .checkmark {
   position: absolute;
   top: 50%;
@@ -1382,6 +1540,7 @@ ul li {
   background-color: rgb(var(--p1));
   border-radius: 50%;
 }
+
 .custom-checkbox .checkmark:after {
   content: "";
   position: absolute;
@@ -1395,13 +1554,16 @@ ul li {
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
 }
-.custom-checkbox:hover input ~ .checkmark {
+
+.custom-checkbox:hover input~.checkmark {
   background-color: rgb(var(--p1), 0.8);
 }
-.custom-checkbox input:checked ~ .checkmark {
+
+.custom-checkbox input:checked~.checkmark {
   background-color: rgb(var(--p1));
 }
-.custom-checkbox input:checked ~ .checkmark:after {
+
+.custom-checkbox input:checked~.checkmark:after {
   display: block;
 }
 
@@ -1430,11 +1592,13 @@ ul li {
   cursor: pointer;
   position: relative;
 }
+
 .accordion-section .acc-header-area button {
   background: transparent;
   border: 0;
   outline: 0;
 }
+
 .accordion-section .acc-header-area button::after {
   content: "\ea69";
   font-family: "tabler-icons";
@@ -1447,9 +1611,11 @@ ul li {
   transition: all 0.5s ease-in-out;
   border-radius: 50%;
 }
+
 .accordion-section .acc-content-area {
   display: none;
 }
+
 .accordion-section .active .acc-header-area button::after {
   content: "\ea68";
   transform: rotate(180deg);
@@ -1460,6 +1626,7 @@ ul li {
   counter-reset: list;
   list-style-type: none;
 }
+
 .lower-alpha-right-parentheses li:before {
   content: counter(list, lower-alpha) ") ";
   counter-increment: list;
@@ -1490,25 +1657,31 @@ ul li {
   transform: translateX(100%);
   overflow-y: auto;
 }
+
 .notification-area.open,
 .user-account-popup.open {
   transform: translateX(0);
 }
+
 .notification-area::-webkit-scrollbar,
 .user-account-popup::-webkit-scrollbar {
   width: 5px;
 }
+
 .notification-area::-webkit-scrollbar-track,
 .user-account-popup::-webkit-scrollbar-track {
   background: rgb(var(--p2));
   border-radius: 5px;
 }
-.notification-area::-webkit-scrollbar-button, .notification-area::-webkit-scrollbar-thumb,
+
+.notification-area::-webkit-scrollbar-button,
+.notification-area::-webkit-scrollbar-thumb,
 .user-account-popup::-webkit-scrollbar-button,
 .user-account-popup::-webkit-scrollbar-thumb {
   background: rgb(var(--p1));
   border-radius: 5px;
 }
+
 .notification-area .card-img-area,
 .user-account-popup .card-img-area {
   width: 36px;
@@ -1520,6 +1693,7 @@ ul li {
   align-items: center;
   justify-content: center;
 }
+
 .notification-area .card-item,
 .user-account-popup .card-item {
   padding: 4px;
@@ -1527,6 +1701,7 @@ ul li {
   width: 100%;
   transition: all 0.3s ease;
 }
+
 .notification-area .card-item:hover,
 .user-account-popup .card-item:hover {
   background: rgb(var(--p1));
@@ -1535,23 +1710,28 @@ ul li {
 .user-account-popup {
   height: auto;
 }
+
 .user-account-popup .account-item {
   padding: 8px;
   border-radius: 12px;
   transition: all 0.3s ease;
 }
+
 .user-account-popup .account-item:hover {
   background: rgb(var(--p1));
 }
+
 .user-account-popup .user-level-area {
   background: rgba(var(--p1), 0.1);
 }
+
 .user-account-popup .user-level-area .level-bar {
   background: rgb(var(--n4));
   width: 100%;
   height: 6px;
   position: relative;
 }
+
 .user-account-popup .user-level-area .level-bar .level-progress {
   position: absolute;
   left: 0;
@@ -1580,31 +1760,37 @@ ul li {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
 }
+
 .connect-wallet-section {
   transform: translateY(-120%);
   transition: all 0.9s ease-in-out;
   z-index: 1000;
 }
+
 .connect-wallet-section .connect-wallet-overlay {
   background: rgba(var(--n5), 0.5);
   -webkit-backdrop-filter: blur(4px);
-          backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
   z-index: -1;
 }
+
 .connect-wallet-section .wallet-wrapper {
   max-width: 600px;
   margin: auto;
 }
+
 .connect-wallet-section .wallet-area {
   border: 1px solid rgb(var(--p1));
   max-width: 600px;
   max-height: 700px;
   width: 100%;
 }
+
 .connect-wallet-section .wallet-item .wallet-item-thumb {
   width: 48px;
   min-width: 48px;
@@ -1615,6 +1801,7 @@ ul li {
   align-items: center;
   justify-content: center;
 }
+
 .connect-wallet-section.active {
   transform: translateY(0%);
 }
@@ -1629,6 +1816,7 @@ ul li {
   opacity: 0.5;
   z-index: -1;
 }
+
 @media (max-width: 767px) {
   .footer-banner-img {
     display: none;
@@ -1643,6 +1831,7 @@ ul li {
   width: 100%;
   opacity: 0.5;
 }
+
 @media (max-width: 1400px) {
   .sword-area {
     display: none;
@@ -1657,6 +1846,7 @@ ul li {
   width: 100%;
   opacity: 0.5;
 }
+
 @media (max-width: 1600px) {
   .diamond-area {
     display: none;
@@ -1671,6 +1861,7 @@ ul li {
   width: 100%;
   opacity: 0.5;
 }
+
 @media (max-width: 1600px) {
   .game-console-area {
     display: none;
@@ -1680,22 +1871,26 @@ ul li {
 .hero-section {
   background-blend-mode: multiply;
 }
+
 .hero-section .star-area {
   position: absolute;
   top: 150px;
   right: 150px;
   max-width: 200px;
 }
+
 .hero-section .star-area .big-star {
   max-width: 150px;
   animation: growUp 2s ease-in-out infinite;
 }
+
 .hero-section .star-area .small-star {
   position: absolute;
   right: 0;
   max-width: 48px;
   animation: rotate 2s ease-in-out infinite;
 }
+
 .hero-section .rotate-award {
   position: absolute;
   bottom: 150px;
@@ -1703,22 +1898,27 @@ ul li {
   max-width: 100px;
   animation: rotateY 3s ease-in-out infinite;
 }
+
 .hero-section .hero-content .card-area {
   border: 1px solid rgba(var(--n1), 0.2);
   background: rgba(var(--n1), 0.1);
 }
+
 .hero-section .hero-content .card-area .card-item .card-img-area {
   max-width: 72px;
   max-height: 72px;
   border: 2px solid rgb(var(--n3));
 }
+
 @media (max-width: 575px) {
   .hero-section .hero-content .card-area .card-item .card-img-area {
     max-width: 60px;
     max-height: 60px;
   }
 }
+
 @media (max-width: 1750px) {
+
   .hero-section .star-area,
   .hero-section .rotate-award {
     display: none;
@@ -1736,6 +1936,7 @@ ul li {
   justify-content: center;
   border: 3px solid rgb(var(--n3));
 }
+
 .active-player-list .player-lists li:last-child {
   background: rgb(var(--p1));
   border-color: rgb(var(--n1));
@@ -1749,6 +1950,7 @@ ul li {
   transform: translateX(-50%);
   z-index: -1;
 }
+
 .hero-banner-area .hero-banner-bg {
   position: absolute;
   top: 0;
@@ -1760,6 +1962,7 @@ ul li {
   height: 950px;
   transform: translateX(-50%);
 }
+
 .hero-banner-area .hero-banner-img {
   position: absolute;
   bottom: 0;
@@ -1770,21 +1973,25 @@ ul li {
   z-index: -1;
   transform: translateX(-40%);
 }
+
 @media (max-width: 1399px) {
   .hero-banner-area .hero-banner-bg {
     display: none;
   }
+
   .hero-banner-area .hero-banner-img {
     width: 450px;
     height: 650px;
   }
 }
+
 @media (max-width: 1199px) {
   .hero-banner-area .hero-banner-img {
     width: 350px;
     height: 540px;
   }
 }
+
 @media (max-width: 991px) {
   .hero-banner-area .hero-banner-img {
     width: 300px;
@@ -1792,10 +1999,12 @@ ul li {
     left: -80px;
   }
 }
+
 @media (max-width: 767px) {
   .hero-banner-area {
     left: 70%;
   }
+
   .hero-banner-area .hero-banner-img {
     left: 100%;
     height: 350px;
@@ -1804,6 +2013,7 @@ ul li {
     z-index: -1;
   }
 }
+
 @media (max-width: 575px) {
   .hero-banner-area {
     display: none;
@@ -1815,29 +2025,36 @@ ul li {
     transform: scale(1.2);
   }
 }
+
 @keyframes rotate {
   50% {
     transform: rotate(360deg);
   }
 }
+
 @keyframes rotateY {
   0% {
     transform: rotateY(0deg);
   }
+
   100% {
     transform: rotateY(360deg);
   }
 }
+
 .swiper-3d-section {
   margin-top: -120px;
   background: url("../img/bg-2.png") no-repeat center center;
 }
+
 .swiper-3d-section .swiper-3d-container {
   width: 100%;
 }
+
 .swiper-3d-section .swiper-3d-container .swiper-slide {
   width: 320px;
 }
+
 .swiper-3d-section .swiper-3d-container .swiper-slide .card-3d {
   position: relative;
   width: 320px;
@@ -1846,30 +2063,37 @@ ul li {
   background: rgb(var(--n5));
   transition: all 0.5s ease;
 }
+
 .swiper-3d-section .swiper-3d-container .swiper-slide .card-3d .img-area {
   border-radius: inherit;
 }
+
 .swiper-3d-section .swiper-3d-container .swiper-slide .card-3d .img-area img {
   border-radius: inherit;
   transition: all 0.5s ease;
 }
+
 .swiper-3d-section .swiper-3d-container .swiper-slide .card-3d .card-date {
   border-radius: 12px;
   background: rgba(var(--n1), 0.45);
 }
+
 .swiper-3d-section .swiper-3d-container .swiper-slide .card-3d .card-status {
   border-radius: 46px;
   border: 1px solid rgb(var(--s1));
   background: rgb(var(--n4));
   bottom: -10px;
 }
+
 .swiper-3d-section .swiper-3d-container .swiper-slide .card-3d .card-info {
   border-radius: 12px;
   background: rgba(var(--n3), 0.4);
 }
+
 .swiper-3d-section .swiper-3d-container .swiper-slide-active .card-3d {
   border: 1px solid rgb(var(--p1));
 }
+
 .swiper-3d-section .swiper-btn-area .swiper-3d-button-prev,
 .swiper-3d-section .swiper-btn-area .swiper-3d-button-next {
   position: absolute;
@@ -1878,14 +2102,17 @@ ul li {
   left: 10%;
   z-index: 10;
 }
+
 .swiper-3d-section .swiper-btn-area .swiper-3d-button-next {
   left: unset;
   right: 10%;
 }
+
 @media (max-width: 1760px) {
   .swiper-3d-section .swiper-btn-area {
     margin-top: 40px;
   }
+
   .swiper-3d-section .swiper-btn-area .swiper-3d-button-prev,
   .swiper-3d-section .swiper-btn-area .swiper-3d-button-next {
     position: initial;
@@ -1895,11 +2122,13 @@ ul li {
     right: unset;
   }
 }
+
 @media (max-width: 480px) {
   .swiper-3d-section .swiper-btn-area {
     display: none;
   }
 }
+
 @media (max-width: 767px) {
   .swiper-3d-section {
     margin-top: -80px;
@@ -1912,10 +2141,12 @@ ul li {
   background: rgb(var(--n4));
   transition: all 0.3s ease-in-out;
 }
+
 .top-player-section .swiper-top-player .swiper-slide .player-card .player-img {
   width: 62px;
   height: 62px;
 }
+
 .top-player-section .swiper-top-player .swiper-slide .player-card .player-img .player-status {
   width: 20px;
   min-width: 20px;
@@ -1928,6 +2159,7 @@ ul li {
   background: rgb(var(--p1));
   border: 2px solid rgb(var(--n0));
 }
+
 .top-player-section .swiper-top-player .swiper-slide .player-card .follow-btn {
   width: 40px;
   min-width: 40px;
@@ -1942,16 +2174,20 @@ ul li {
   transition: all 0.3s ease;
   color: rgb(var(--n6));
 }
+
 .top-player-section .swiper-top-player .swiper-slide .player-card .follow-btn:hover {
   border-color: rgb(var(--p1));
   color: rgb(var(--n1));
 }
+
 .top-player-section .swiper-top-player .swiper-slide-active .player-card {
   border: 1px solid rgb(var(--p1));
 }
+
 .top-player-section .swiper-top-player .swiper-slide-active .player-card .player-name {
   color: rgb(var(--p1));
 }
+
 .top-player-section .swiper-top-player .swiper-slide-active .player-card .follow-btn {
   background: rgb(var(--p1));
   border: 0;
@@ -1964,12 +2200,15 @@ ul li {
   overflow: hidden;
   border-radius: 32px;
 }
+
 .tournament-section .tournament-wrapper.alt {
   max-width: unset;
 }
+
 .tournament-section .tournament-wrapper .btn-half-border {
   z-index: 1;
 }
+
 .tournament-section .tournament-wrapper .tournament-wrapper-border {
   margin: 1px;
   border: 1px solid rgb(var(--n3));
@@ -1977,7 +2216,9 @@ ul li {
   background: rgb(var(--n0));
   border-radius: inherit;
 }
-.tournament-section .tournament-wrapper .tournament-wrapper-border::before, .tournament-section .tournament-wrapper .tournament-wrapper-border::after {
+
+.tournament-section .tournament-wrapper .tournament-wrapper-border::before,
+.tournament-section .tournament-wrapper .tournament-wrapper-border::after {
   content: "";
   position: absolute;
   left: -50%;
@@ -1989,25 +2230,30 @@ ul li {
   border-radius: inherit;
   animation: spinBorder 20s linear infinite;
 }
+
 .tournament-section .tournament-wrapper .tournament-wrapper-border::after {
   animation: spinBorder 10s linear infinite;
 }
+
 .tournament-section .tournament-wrapper .tournament-card {
   border: 1px solid rgb(var(--n3));
   border-radius: 24px;
   transition: all 0.7s ease-in-out;
 }
+
 .tournament-section .tournament-wrapper .tournament-card .tournament-img .img-area {
   border-radius: 12px;
   max-height: 230px;
   width: 100%;
   height: 100%;
 }
+
 .tournament-section .tournament-wrapper .tournament-card .tournament-img .img-area img {
   transition: all 0.5s ease;
   border-radius: inherit;
   height: 100%;
 }
+
 .tournament-section .tournament-wrapper .tournament-card .tournament-img .card-status {
   border-radius: 46px;
   border: 1px solid rgb(var(--s1));
@@ -2015,35 +2261,43 @@ ul li {
   bottom: -10px;
   transition: all 0.5s ease;
 }
+
 .tournament-section .tournament-wrapper .tournament-card .card-info .price-money,
 .tournament-section .tournament-wrapper .tournament-card .card-info .ticket-fee,
 .tournament-section .tournament-wrapper .tournament-card .card-info .date-time {
   border-radius: 12px;
 }
+
 .tournament-section .tournament-wrapper .tournament-card .tournament-title,
 .tournament-section .tournament-wrapper .tournament-card .teams,
 .tournament-section .tournament-wrapper .tournament-card .player {
   transition: all 0.5s ease;
 }
+
 .tournament-section .tournament-wrapper .tournament-card:hover {
   border: 1px solid rgb(var(--p1));
 }
+
 .tournament-section .tournament-wrapper .tournament-card:hover .tournament-title,
 .tournament-section .tournament-wrapper .tournament-card:hover .teams,
 .tournament-section .tournament-wrapper .tournament-card:hover .player {
   color: rgb(var(--p1));
 }
+
 .tournament-section .tournament-wrapper .tournament-card:hover .card-status {
   background: rgb(var(--p1));
   border: 1px solid rgb(var(--p1));
 }
+
 .tournament-section .tournament-wrapper .tournament-card:hover .tournament-img img {
   transform: scale(1.1);
 }
+
 .tournament-section .tournament-wrapper .tournament-card .btn2:hover {
   background: rgb(var(--p1));
   transform: rotate(-45deg);
 }
+
 @media (max-width: 480px) {
   .tournament-section .tournament-wrapper .tournament-card .btn2 {
     width: 36px;
@@ -2061,15 +2315,18 @@ ul li {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
 }
+
 .game-section .game-card-wrapper {
   max-width: 310px;
   transition: all 0.5s ease;
   position: relative;
 }
+
 .game-section .game-card-wrapper .game-card {
   position: relative;
   max-width: 310px;
@@ -2079,6 +2336,7 @@ ul li {
   height: 100%;
   overflow: hidden;
 }
+
 .game-section .game-card-wrapper .game-card .game-card-border {
   position: absolute;
   width: 100%;
@@ -2089,6 +2347,7 @@ ul li {
   z-index: -1;
   transition: all 0.5s ease;
 }
+
 .game-section .game-card-wrapper .game-card .game-card-border-overlay {
   position: absolute;
   width: 99%;
@@ -2097,6 +2356,7 @@ ul li {
   top: 0.5%;
   background: rgb(var(--n0));
 }
+
 .game-section .game-card-wrapper .game-card .game-img {
   max-width: 300px;
   max-height: 450px;
@@ -2104,34 +2364,41 @@ ul li {
   height: 100%;
   overflow: hidden;
 }
+
 @media (max-width: 1399px) {
   .game-section .game-card-wrapper .game-card .game-img.alt {
     max-height: 380px;
   }
 }
+
 @media (max-width: 1199px) {
   .game-section .game-card-wrapper .game-card .game-img.alt {
     max-height: 420px;
   }
 }
+
 @media (max-width: 767px) {
   .game-section .game-card-wrapper .game-card .game-img.alt {
     max-height: 360px;
   }
 }
+
 .game-section .game-card-wrapper .game-card .game-img img {
   transition: all 0.5s ease;
 }
+
 .game-section .game-card-wrapper .game-card .game-card-border,
 .game-section .game-card-wrapper .game-card .game-card-border-overlay,
 .game-section .game-card-wrapper .game-card .game-img,
 .game-section .game-card-wrapper .game-card .game-link {
   -webkit-clip-path: polygon(84% 100%, 100% 88%, 100% 5%, 92% 0%, 14% 0%, 0% 11%, 0% 94%, 6% 100%);
-          clip-path: polygon(84% 100%, 100% 88%, 100% 5%, 92% 0%, 14% 0%, 0% 11%, 0% 94%, 6% 100%);
+  clip-path: polygon(84% 100%, 100% 88%, 100% 5%, 92% 0%, 14% 0%, 0% 11%, 0% 94%, 6% 100%);
 }
+
 .game-section .game-card-wrapper .game-card .game-title {
   transition: all 0.5s ease;
 }
+
 .game-section .game-card-wrapper .game-link {
   position: absolute;
   width: 99%;
@@ -2142,6 +2409,7 @@ ul li {
   opacity: 0;
   transition: all 0.5s ease;
 }
+
 .game-section .game-card-wrapper .game-link .btn2 {
   width: 80px;
   min-width: 80px;
@@ -2155,25 +2423,32 @@ ul li {
   transition: all 0.5s ease;
   z-index: 10;
 }
+
 .game-section .game-card-wrapper:hover .game-card-border {
   background: rgb(var(--p1));
 }
+
 .game-section .game-card-wrapper:hover .game-img img {
   transform: scale(1.1);
 }
+
 .game-section .game-card-wrapper:hover .game-title {
   color: rgb(var(--p1));
 }
+
 .game-section .game-card-wrapper:hover .game-link {
   opacity: 1;
   height: 99%;
 }
+
 .game-section .game-card-wrapper:hover .game-link .btn2 {
   transform: rotate(-45deg);
 }
+
 .game-section .game-card-wrapper:hover .game-link .btn2:hover {
   transform: rotate(0deg);
 }
+
 .game-section .game-swiper .game-swiper-pagination .swiper-pagination-bullet,
 .game-section .game-swiper .game-swiper-pagination .swiper-pagination-bullets-dynamic,
 .game-section .game-swiper2 .game-swiper-pagination .swiper-pagination-bullet,
@@ -2184,6 +2459,7 @@ ul li {
   background: rgb(var(--p1));
   opacity: 0.7;
 }
+
 .game-section .game-swiper .game-swiper-pagination .swiper-pagination-bullet-active,
 .game-section .game-swiper2 .game-swiper-pagination .swiper-pagination-bullet-active {
   width: 30px;
@@ -2196,6 +2472,7 @@ ul li {
   background: rgb(var(--n4));
   transition: all 0.5s ease;
 }
+
 .next-level-gaming-section .next-level-game-card .card-icon {
   width: 80px;
   min-width: 80px;
@@ -2208,6 +2485,7 @@ ul li {
   border: 1px solid rgb(var(--n3));
   transition: all 0.5s ease;
 }
+
 @media (max-width: 576px) {
   .next-level-gaming-section .next-level-game-card .card-icon {
     width: 60px;
@@ -2220,29 +2498,37 @@ ul li {
     justify-content: center;
   }
 }
+
 .next-level-gaming-section .next-level-game-card .card-title {
   transition: all 0.5s ease;
 }
+
 .next-level-gaming-section .next-level-game-card .card-link {
   border-bottom: 1px solid rgb(var(--n1));
   transition: all 0.5s ease;
 }
+
 .next-level-gaming-section .next-level-game-card .card-link i {
   transition: all 0.3s ease;
 }
+
 .next-level-gaming-section .next-level-game-card .card-link:hover {
   color: rgb(var(--p1));
   border-color: rgb(var(--p1));
 }
+
 .next-level-gaming-section .next-level-game-card .card-link:hover i {
   transform: translateX(5px);
 }
+
 .next-level-gaming-section .next-level-game-card:hover {
   border: 1px solid rgb(var(--p1));
 }
+
 .next-level-gaming-section .next-level-game-card:hover .card-icon {
   background: rgb(var(--p1));
 }
+
 .next-level-gaming-section .next-level-game-card:hover .card-title {
   color: rgb(var(--p1));
 }
@@ -2252,16 +2538,20 @@ ul li {
     overflow: initial;
   }
 }
+
 @media (max-width: 991px) {
   .footer {
     overflow: hidden;
   }
 }
+
 .footer .footer-card-area {
   position: relative;
   z-index: 1;
 }
-.footer .footer-card-area:before, .footer .footer-card-area:after {
+
+.footer .footer-card-area:before,
+.footer .footer-card-area:after {
   content: "";
   position: absolute;
   width: 0;
@@ -2271,56 +2561,69 @@ ul li {
   transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
   z-index: -1;
 }
+
 .footer .footer-card-area:before {
   left: 0;
 }
+
 .footer .footer-card-area:after {
   right: 0;
   transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
+
 .footer .footer-card-area:hover:before {
   width: 100%;
   transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
+
 .footer .footer-card-area:hover:after {
   width: 100%;
   transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
+
 .footer .footer-card-area .flogo-1 {
   max-width: 100px;
   width: 100%;
 }
+
 @media (max-width: 991px) {
   .footer .footer-card-area .flogo-1 {
     max-width: 80px;
   }
 }
+
 @media (max-width: 767px) {
   .footer .footer-card-area .flogo-1 {
     max-width: 60px;
   }
 }
+
 .footer .footer-card-area .flogo-2 {
   max-width: 200px;
   width: 100%;
 }
+
 @media (max-width: 991px) {
   .footer .footer-card-area .flogo-2 {
     max-width: 150px;
   }
 }
+
 .footer .footer-list li .footer-link {
   transition: all 0.5s ease;
   transform: translateX(-20px);
 }
+
 .footer .footer-list li .footer-link i {
   transition: all 0.5s ease;
   opacity: 0;
 }
+
 .footer .footer-list li .footer-link:hover {
   color: rgb(var(--p1));
   transform: translateX(0px);
 }
+
 .footer .footer-list li .footer-link:hover i {
   transform: translateX(0px);
   opacity: 1;
@@ -2339,6 +2642,7 @@ ul li {
   background: rgb(var(--n3));
   transition: all 0.5s ease;
 }
+
 .social-links li:hover {
   background: rgb(var(--p1));
 }
@@ -2349,6 +2653,7 @@ ul li {
   height: 100%;
   max-height: 450px;
 }
+
 .banner-section .banner-bg-img .banner-inner-img,
 .banner-section .banner-swiper .banner-inner-img {
   width: 100%;
@@ -2356,11 +2661,14 @@ ul li {
   height: 100%;
   overflow: hidden;
 }
+
 @media (max-width: 991px) {
+
   .banner-section .banner-bg-img,
   .banner-section .banner-swiper {
     max-height: 700px;
   }
+
   .banner-section .banner-bg-img .banner-inner-img,
   .banner-section .banner-swiper .banner-inner-img {
     max-height: unset;
@@ -2368,6 +2676,7 @@ ul li {
     margin: 0 auto;
   }
 }
+
 .banner-section .banner-swiper-pagination {
   position: absolute;
   width: 100px;
@@ -2376,6 +2685,7 @@ ul li {
   transform: translateY(-50%);
   z-index: 10;
 }
+
 .banner-section .banner-swiper-pagination .swiper-pagination-bullet {
   background: rgb(var(--n6));
   opacity: 0.7;
@@ -2383,11 +2693,13 @@ ul li {
   height: 20px;
   border-radius: 10px;
 }
+
 .banner-section .banner-swiper-pagination .swiper-pagination-bullet-active {
   background: rgb(var(--p1));
   height: 40px;
   opacity: 1;
 }
+
 .banner-section .card-items .card-img-area {
   width: 72px;
   min-width: 72px;
@@ -2398,6 +2710,7 @@ ul li {
   align-items: center;
   justify-content: center;
 }
+
 @media (max-width: 991px) {
   .banner-section .card-items .card-img-area {
     width: 60px;
@@ -2410,6 +2723,7 @@ ul li {
     justify-content: center;
   }
 }
+
 @media (max-width: 575px) {
   .banner-section .card-items .card-img-area {
     width: 50px;
@@ -2427,6 +2741,7 @@ ul li {
   background: rgb(var(--n4));
   border: 0;
 }
+
 .tournaments-tab .nav-links.active .tablink {
   background: rgb(var(--p1));
 }
@@ -2437,10 +2752,12 @@ ul li {
   max-height: 400px;
   min-height: 150px;
 }
+
 .parallax-banner-area img {
   min-height: 120px;
   max-height: 400px;
 }
+
 .parallax-banner-area img.alt {
   min-height: unset;
 }
@@ -2452,32 +2769,39 @@ ul li {
   align-items: start;
   justify-content: center;
 }
+
 @media (max-width: 1600px) {
   .teams-card-section .team-card {
     flex-direction: column;
     align-items: center;
   }
+
   .teams-card-section .team-card .title-area,
   .teams-card-section .team-card .player-info {
     justify-content: center;
   }
 }
+
 .teams-card-section .team-card .team-thumb {
   max-width: 80px;
   max-height: 80px;
   width: 100%;
   margin: 0 auto;
 }
+
 .teams-card-section .team-card .btn-half-border {
   background: rgb(var(--n3));
   transition: all 0.3s ease;
 }
+
 .teams-card-section .team-card .btn-half-border::before {
   border-color: transparent rgb(var(--n3));
 }
+
 .teams-card-section .team-card .btn-half-border:hover {
   background: rgb(var(--p1));
 }
+
 .teams-card-section .team-card .btn-half-border:hover::before {
   border-color: rgb(var(--p1));
 }
@@ -2493,6 +2817,7 @@ ul li {
   justify-content: center;
   border: 3px solid rgb(var(--n3));
 }
+
 .player-lists li:last-child {
   background: rgb(var(--n3));
   border-color: rgb(var(--n1));
@@ -2504,6 +2829,7 @@ ul li {
 .profile-banner-section .profile-banner {
   min-height: 200px;
 }
+
 .team-profile-banner .team-banner::after,
 .team-profile-banner .profile-banner::after,
 .profile-banner-section .team-banner::after,
@@ -2516,6 +2842,7 @@ ul li {
   left: 0;
   background: var(--gradient4);
 }
+
 .team-profile-banner .team-banner .tbi,
 .team-profile-banner .profile-banner .tbi,
 .profile-banner-section .team-banner .tbi,
@@ -2523,14 +2850,16 @@ ul li {
   max-height: 400px;
   min-height: 200px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
+
 .team-profile-banner .team-banner .edit-btn,
 .team-profile-banner .profile-banner .edit-btn,
 .profile-banner-section .team-banner .edit-btn,
 .profile-banner-section .profile-banner .edit-btn {
   cursor: pointer;
 }
+
 .team-profile-banner .team-banner .team-profile,
 .team-profile-banner .team-banner .user-profile,
 .team-profile-banner .profile-banner .team-profile,
@@ -2544,6 +2873,7 @@ ul li {
   right: 0;
   transform: translateY(20%);
 }
+
 .team-profile-banner .team-banner .team-profile .team-thumb,
 .team-profile-banner .team-banner .team-profile .profile-thumb,
 .team-profile-banner .team-banner .user-profile .team-thumb,
@@ -2570,7 +2900,9 @@ ul li {
   justify-content: center;
   border: 5px solid rgb(var(--n4));
 }
+
 @media (max-width: 1199px) {
+
   .team-profile-banner .team-banner .team-profile .team-thumb,
   .team-profile-banner .team-banner .team-profile .profile-thumb,
   .team-profile-banner .team-banner .user-profile .team-thumb,
@@ -2597,7 +2929,9 @@ ul li {
     justify-content: center;
   }
 }
+
 @media (max-width: 991px) {
+
   .team-profile-banner .team-banner .team-profile .team-thumb,
   .team-profile-banner .team-banner .team-profile .profile-thumb,
   .team-profile-banner .team-banner .user-profile .team-thumb,
@@ -2624,7 +2958,9 @@ ul li {
     justify-content: center;
   }
 }
+
 @media (max-width: 767px) {
+
   .team-profile-banner .team-banner .team-profile .team-thumb,
   .team-profile-banner .team-banner .team-profile .profile-thumb,
   .team-profile-banner .team-banner .user-profile .team-thumb,
@@ -2651,7 +2987,9 @@ ul li {
     justify-content: center;
   }
 }
+
 @media (max-width: 575px) {
+
   .team-profile-banner .team-banner .team-profile .team-thumb,
   .team-profile-banner .team-banner .team-profile .profile-thumb,
   .team-profile-banner .team-banner .user-profile .team-thumb,
@@ -2678,7 +3016,9 @@ ul li {
     justify-content: center;
   }
 }
+
 @media (max-width: 480px) {
+
   .team-profile-banner .team-banner .team-profile .team-thumb,
   .team-profile-banner .team-banner .team-profile .profile-thumb,
   .team-profile-banner .team-banner .user-profile .team-thumb,
@@ -2705,6 +3045,7 @@ ul li {
     justify-content: center;
   }
 }
+
 .team-profile-banner .team-banner .team-profile .team-thumb img,
 .team-profile-banner .team-banner .team-profile .profile-thumb img,
 .team-profile-banner .team-banner .user-profile .team-thumb img,
@@ -2723,6 +3064,7 @@ ul li {
 .profile-banner-section .profile-banner .user-profile .profile-thumb img {
   min-height: unset;
 }
+
 .team-profile-banner .user-social li,
 .profile-banner-section .user-social li {
   width: 40px;
@@ -2737,6 +3079,7 @@ ul li {
   border-radius: 12px;
   border: none;
 }
+
 .team-profile-banner .team-info .team-info-icon,
 .profile-banner-section .team-info .team-info-icon {
   width: 50px;
@@ -2756,15 +3099,18 @@ ul li {
   border-radius: 50px;
   color: rgb(var(--n1));
 }
+
 .player-details-section .nav-pills .active {
   background: rgb(var(--p1));
 }
+
 .player-details-section .nested-tabs .nav-link {
   background: unset;
   border-radius: unset;
   padding: unset;
   opacity: 0.8;
 }
+
 .player-details-section .nested-tabs .active {
   border-bottom: 2px solid rgb(var(--p1));
   opacity: 1;
@@ -2776,10 +3122,12 @@ ul li {
   min-width: 991px;
   border-spacing: 15px;
 }
+
 .team-game-header .tdw,
 .team-game-table .tdw {
   width: 10%;
 }
+
 .team-game-header .tdw:first-child,
 .team-game-table .tdw:first-child {
   width: 50%;
@@ -2789,6 +3137,7 @@ ul li {
   border: 1px solid transparent;
   transition: all 0.3s ease-in-out;
 }
+
 .faq-accordion .accordion-single.active {
   border: 1px solid rgb(var(--p1));
 }
@@ -2797,16 +3146,19 @@ ul li {
   min-height: 350px;
   max-height: unset;
 }
+
 @media (max-width: 991px) {
   .tournament-details .parallax-banner-area {
     min-height: 700px;
   }
 }
+
 @media (max-width: 575px) {
   .tournament-details .parallax-banner-area {
     min-height: 600px;
   }
 }
+
 .tournament-details .running-tournament .date-box {
   width: 80px;
   min-width: 80px;
@@ -2818,9 +3170,10 @@ ul li {
   justify-content: center;
   border-radius: 20%;
   -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-          clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   background: rgb(var(--p1));
 }
+
 @media (max-width: 575px) {
   .tournament-details .running-tournament .date-box {
     width: 60px;
@@ -2839,6 +3192,7 @@ ul li {
   position: relative;
   z-index: 1;
 }
+
 .tour-reg-process-section .tour-reg-process-area .step-area:before {
   content: "";
   position: absolute;
@@ -2850,16 +3204,19 @@ ul li {
   background: rgba(var(--s1), 0.3);
   z-index: -1;
 }
+
 @media (max-width: 1199px) {
   .tour-reg-process-section .tour-reg-process-area .step-area:before {
     width: 110%;
   }
 }
+
 @media (max-width: 575px) {
   .tour-reg-process-section .tour-reg-process-area .step-area:before {
     display: none;
   }
 }
+
 .tour-reg-process-section .tour-reg-process-area .step-area .step {
   width: 60px;
   min-width: 60px;
@@ -2873,37 +3230,48 @@ ul li {
   position: relative;
   z-index: 1;
 }
+
 .tour-reg-process-section .tour-reg-process-area .step-area .step .check {
   display: none;
 }
+
 .tour-reg-process-section .tour-reg-process-area.complete .step-area:before {
   background: rgb(var(--s1));
 }
+
 .tour-reg-process-section .tour-reg-process-area.complete .step-area .step {
   background: rgb(var(--s1));
 }
+
 .tour-reg-process-section .tour-reg-process-area.complete .step-area .step-number {
   display: none;
 }
+
 .tour-reg-process-section .tour-reg-process-area.complete .step-area .check {
   display: block;
 }
+
 .tour-reg-process-section .tour-reg-process-area.pending .step-area .step {
   border: 1px solid rgb(var(--s1));
 }
+
 .tour-reg-process-section .tour-reg-process-area.pending .step-area .step .step-number {
   display: none;
 }
+
 .tour-reg-process-section .tour-reg-process-area.pending .step-area .step .check {
   display: block;
 }
+
 .tour-reg-process-section .tour-reg-content-area .date {
   border: 1px solid rgb(var(--n3));
   transition: all 0.3s ease-in-out;
 }
+
 .tour-reg-process-section .tour-reg-content-area .date:hover {
   background: rgb(var(--s1));
 }
+
 .tour-reg-process-section .trp-area .trp-box:last-child .step-area:before {
   display: none;
 }
@@ -2911,12 +3279,15 @@ ul li {
 .tournament-more-details .bracket-card .bracket-badge {
   border: 1px solid rgb(var(--n3));
 }
+
 .tournament-more-details .team-tree-view-area .team-tree-view-list {
   position: relative;
 }
+
 .tournament-more-details .team-tree-view-area .team-tree-view-list .team-tree-view-item {
   border-right: 5px solid rgb(var(--n3));
 }
+
 .tournament-more-details .team-tree-view-area .team-tree-view-list .team-tree-view-item .team-tree-view-thumb {
   width: 48px;
   min-width: 48px;
@@ -2927,7 +3298,9 @@ ul li {
   align-items: center;
   justify-content: center;
 }
-.tournament-more-details .team-tree-view-area .team-tree-view-list::before, .tournament-more-details .team-tree-view-area .team-tree-view-list::after {
+
+.tournament-more-details .team-tree-view-area .team-tree-view-list::before,
+.tournament-more-details .team-tree-view-area .team-tree-view-list::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -2940,6 +3313,7 @@ ul li {
   border-left: none;
   border-radius: 10px;
 }
+
 .tournament-more-details .team-tree-view-area .team-tree-view-list::after {
   width: 10%;
   height: 1px;
@@ -2947,21 +3321,27 @@ ul li {
   border: none;
   background: rgb(var(--n3));
 }
+
 .tournament-more-details .team-tree-view-area .team-tree-view-list.grand-grand-child::before {
   display: none;
 }
+
 .tournament-more-details .team-tree-view-area .team-tree-view-list.grand-grand-child::after {
   display: none;
 }
+
 .tournament-more-details .team-tree-view-area .team-tree-view-list.grand-child::before {
   height: 130%;
 }
+
 .tournament-more-details .team-tree-view-area .team-tree-view-list.child::before {
   height: 280%;
 }
+
 .tournament-more-details .team-tree-view-area .team-tree-view-list.parent::before {
   height: 560%;
 }
+
 .tournament-more-details .team-branch-list .team-branch-item .team-branch-thumb {
   width: 48px;
   min-width: 48px;
@@ -2972,12 +3352,14 @@ ul li {
   align-items: center;
   justify-content: center;
 }
+
 .tournament-more-details .rule-accordion .accordion-single .rule-acc-btn::after {
   content: "\f60d";
   right: unset;
   left: 0;
   color: rgb(var(--p2));
 }
+
 .tournament-more-details .rule-accordion .active .rule-acc-btn::after {
   transform: rotate(90deg);
 }
@@ -2986,9 +3368,11 @@ ul li {
   border: 1px solid transparent;
   transition: all 0.3s ease-in-out;
 }
+
 .gaming-account-card .edit-id {
   cursor: pointer;
 }
+
 .gaming-account-card .gaming-account-thumb {
   width: 80px;
   min-width: 80px;
@@ -2999,11 +3383,13 @@ ul li {
   align-items: center;
   justify-content: center;
   -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-          clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
+
 .gaming-account-card:hover {
   border-color: rgb(var(--p1));
 }
+
 .gaming-account-card:hover .title {
   color: rgb(var(--p1));
 }
@@ -3018,6 +3404,7 @@ ul li {
   align-items: center;
   justify-content: center;
 }
+
 @media (max-width: 767px) {
   .connected-thumb {
     width: 60px;
@@ -3042,16 +3429,19 @@ ul li {
     max-width: 300px;
   }
 }
+
 @media (max-width: 991px) and (max-width: 767px) {
   .chat-section .chat-list-area {
     top: 70px;
   }
 }
+
 @media (max-width: 991px) {
   .chat-section .chat-list-area.open {
     transform: translateX(0);
   }
 }
+
 .chat-section .msg-list-user-thumb {
   width: 60px;
   min-width: 60px;
@@ -3062,6 +3452,7 @@ ul li {
   align-items: center;
   justify-content: center;
 }
+
 @media (max-width: 767px) {
   .chat-section .msg-list-user-thumb {
     width: 48px;
@@ -3074,23 +3465,28 @@ ul li {
     justify-content: center;
   }
 }
+
 @media (max-width: 767px) {
   .chat-section .search-chat .input-area {
     padding: 10px;
   }
 }
+
 .chat-section .chat-list-wrapper {
   max-height: 58vh;
   overflow-y: auto;
 }
+
 @media (max-width: 991px) {
   .chat-section .chat-list-wrapper {
     max-height: 45vh;
   }
 }
+
 .chat-section .chat-list-wrapper::-webkit-scrollbar {
   display: none;
 }
+
 .chat-section .msg-sender-list-thumb {
   width: 52px;
   min-width: 52px;
@@ -3101,6 +3497,7 @@ ul li {
   align-items: center;
   justify-content: center;
 }
+
 @media (max-width: 767px) {
   .chat-section .msg-sender-list-thumb {
     width: 36px;
@@ -3113,6 +3510,7 @@ ul li {
     justify-content: center;
   }
 }
+
 .chat-section .msg-sender-list-thumb .online-dot {
   width: 20px;
   min-width: 20px;
@@ -3127,12 +3525,15 @@ ul li {
   right: 0;
   border: 4px solid rgb(var(--n4));
 }
+
 .chat-section .msg-sender-list-thumb .online-dot.online {
   background: rgb(var(--s1));
 }
+
 .chat-section .msg-sender-list-thumb .online-dot.offline {
   background: rgb(var(--n3));
 }
+
 .chat-section .msg-count {
   width: 20px;
   min-width: 20px;
@@ -3144,6 +3545,7 @@ ul li {
   justify-content: center;
   background: rgb(var(--p2));
 }
+
 .chat-section .msg-receiver-user-thumb {
   width: 72px;
   min-width: 72px;
@@ -3154,6 +3556,7 @@ ul li {
   align-items: center;
   justify-content: center;
 }
+
 @media (max-width: 991px) {
   .chat-section .msg-receiver-user-thumb {
     width: 60px;
@@ -3166,6 +3569,7 @@ ul li {
     justify-content: center;
   }
 }
+
 @media (max-width: 767px) {
   .chat-section .msg-receiver-user-thumb {
     width: 52px;
@@ -3178,6 +3582,7 @@ ul li {
     justify-content: center;
   }
 }
+
 .chat-section .chat-body {
   max-height: 55vh;
   overflow-y: auto;
@@ -3185,22 +3590,27 @@ ul li {
   bottom: 0;
   top: initial;
 }
+
 .chat-section .chat-body::-webkit-scrollbar {
   display: none;
 }
+
 .chat-section .chat-body .chat-msg {
   width: 50%;
 }
+
 @media (max-width: 991px) {
   .chat-section .chat-body .chat-msg {
     width: 70%;
   }
 }
+
 @media (max-width: 575px) {
   .chat-section .chat-body .chat-msg {
     width: 100%;
   }
 }
+
 .chat-section .chat-body .chat-msg .msg-sender-thumb,
 .chat-section .chat-body .chat-msg .msg-receiver-thumb {
   width: 48px;
@@ -3212,7 +3622,9 @@ ul li {
   align-items: center;
   justify-content: center;
 }
+
 @media (max-width: 767px) {
+
   .chat-section .chat-body .chat-msg .msg-sender-thumb,
   .chat-section .chat-body .chat-msg .msg-receiver-thumb {
     width: 36px;
@@ -3225,16 +3637,19 @@ ul li {
     justify-content: center;
   }
 }
+
 .chat-section .chat-body .chat-msg .msg-text {
   position: relative;
   z-index: 1;
 }
+
 .chat-section .chat-body .chat-msg .msg-text span {
   padding: 12px 24px;
   background: rgb(var(--n3));
   border-radius: 12px;
   display: inline-block;
 }
+
 .chat-section .chat-body .sender .msg-text::before {
   content: "";
   position: absolute;
@@ -3248,6 +3663,7 @@ ul li {
   border-left: 12px solid transparent;
   z-index: -1;
 }
+
 .chat-section .chat-body .receiver .msg-text::before {
   content: "";
   position: absolute;
@@ -3267,6 +3683,7 @@ ul li {
   border-radius: 12px;
   padding: 32px;
 }
+
 @media (max-width: 767px) {
   .sign-in-section .form-area {
     padding: 20px;
@@ -3351,7 +3768,10 @@ ul li {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */

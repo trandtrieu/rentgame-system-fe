@@ -1,47 +1,42 @@
 import React from "react";
-import ConnectWallet from "./ConnectWallet";
-import Notification from "./Notification";
-import HeroSection from "./HeroSection";
-import Swiper3DSection from "./Swiper3DSection";
-import TopPlayer from "./TopPlayer";
-import TournamentSection from "./TournamentSection";
-import GameSection from "./GameSection";
-import Footer from "./Footer";
+import ConnectWallet from "../layouts/ConnectWallet";
+import Notification from "../layouts/Notification";
+import { Link } from "react-router-dom/cjs/react-router-dom";
+
 const navbar = () => {
   return (
     <>
-      {/* Preloader */}
-      <div className="preloader">
-        <div className="loader">
-          <span />
-        </div>
-      </div >
-      {/* cursor effect*/}
-      < div className="cursor" />
-      {/* Header area  */}
+      <div className="cursor" />
 
-      <header className="header-section w-100" >
+      <header className="header-section w-100">
         <div className="py-sm-6 py-3 mx-xxl-20 mx-md-15 mx-3">
           <div className="d-flex align-items-center justify-content-between gap-xxl-10 gap-lg-8 w-100">
             <nav className="navbar-custom d-flex gap-lg-6 align-items-center flex-column flex-lg-row justify-content-start justify-content-lg-between w-100">
               <div className="top-bar w-100 d-flex align-items-center gap-lg-0 gap-6">
-                <button className="navbar-toggle-btn d-block d-lg-none" type="button">
+                <button
+                  className="navbar-toggle-btn d-block d-lg-none"
+                  type="button"
+                >
                   <span />
                   <span />
                   <span />
                   <span />
                 </button>
-                <a
+                <Link
                   className="navbar-brand d-flex align-items-center gap-4"
-                  href="index.html"
+                  to="/"
                 >
                   <img
                     className="w-100 logo1"
                     src="assets/img/favicon.png"
                     alt="favicon"
                   />
-                  <img className="w-100 logo2" src="assets/img/logo.png" alt="logo" />
-                </a>
+                  <img
+                    className="w-100 logo2"
+                    src="assets/img/logo.png"
+                    alt="logo"
+                  />
+                </Link>
               </div>
               <div className="navbar-toggle-item w-100 position-lg-relative">
                 <ul
@@ -49,7 +44,7 @@ const navbar = () => {
                   data-lenis-prevent=""
                 >
                   <li className="menu-link">
-                    <a href="/">Home</a>
+                    <Link to="/">Home</Link>
                   </li>
                   <li className="menu-item">
                     <button>Tournament</button>
@@ -58,7 +53,9 @@ const navbar = () => {
                         <a href="tournaments.html">Tournaments</a>
                       </li>
                       <li className="menu-link">
-                        <a href="tournaments-details.html">Tournaments Details</a>
+                        <a href="tournaments-details.html">
+                          Tournaments Details
+                        </a>
                       </li>
                     </ul>
                   </li>
@@ -104,7 +101,9 @@ const navbar = () => {
                 <span className="btn-circle fs-2xl">
                   <i className="ti ti-wallet" />
                 </span>
-                <span className="text-nowrap d-none d-xl-block">Connect Wallet</span>
+                <span className="text-nowrap d-none d-xl-block">
+                  Connect Wallet
+                </span>
               </button>
               <button className="ntf-btn box-style fs-2xl">
                 <i className="ti ti-bell-filled" />
@@ -161,21 +160,7 @@ const navbar = () => {
         </div>
       </>
       {/* user account details popup end  */}
-      <HeroSection />
-      <Swiper3DSection />
-      <TopPlayer />
-      <TournamentSection />
-      <GameSection />
-      {/* <CallToAction /> */}
-      <Footer />
-
-
-
-
-
-
     </>
-
   );
 };
 export default navbar;
