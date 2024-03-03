@@ -357,7 +357,7 @@ class DetailProductComponent extends Component {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-3">
+                            <div className="col-md-3 col-sm-12">
                                 <picture>
                                     <img
                                         style={{ height: 300 }}
@@ -367,44 +367,53 @@ class DetailProductComponent extends Component {
                                     />
                                 </picture>
                             </div>
-                            <div className="col-9">
-                                <h3>{this.state.game.name}</h3>
+                            <div className="col-md-9">
+                                <h3 className="mt-sm-4 mt-col-4">{this.state.game.name}</h3>
                                 <p className="mt-4 mb-4">
                                     {this.state.game.describe}
                                 </p>
                                 <div className="row">
-                                    <div className="col-4">
-                                        <FontAwesomeIcon icon={faGamepad} bounce />
-                                        <span> Date Released: {this.state.game.date_released}</span> <br />
+                                    <div className="col-md-4">
+                                        <div className="m-5">
+                                            <FontAwesomeIcon style={{ fontSize: '20px', marginRight: '5px' }} icon={faGamepad} bounce />
+                                            <span> Date Released: {this.state.game.date_released}</span> <br />
+                                        </div>
+                                        <div className="m-5">
+                                            <FontAwesomeIcon style={{ fontSize: '20px', marginRight: '5px' }} icon={faGamepad} bounce />
+                                            <span> Price: {this.state.game.price}</span> <br />
+                                        </div>
+                                        <div className="m-5">
+                                            <FontAwesomeIcon style={{ fontSize: '20px', marginRight: '5px' }} icon={faGamepad} bounce />
+                                            <span> Age Limit: {this.state.game.age_limit}</span>
+                                        </div>
 
-                                        <FontAwesomeIcon icon={faGamepad} bounce />
-                                        <span> Price: {this.state.game.price}</span> <br />
-
-                                        <FontAwesomeIcon icon={faGamepad} bounce />
-                                        <span> Age Limit: {this.state.game.age_limit}</span>
                                     </div>
-                                    <div className="col-4">
-                                        <FontAwesomeIcon icon={faGamepad} bounce />
-                                        <span> Platform: {this.state.game.platform}</span> <br />
-
-                                        <FontAwesomeIcon icon={faGamepad} bounce />
-                                        <span> Stock: {this.state.game.stock}</span> <br />
-
-                                        <FontAwesomeIcon icon={faGamepad} bounce />
-                                        <span> Rating {this.state.game.rating}<FontAwesomeIcon icon={faStar} style={{ color: "#FFD43B", }} /></span>
+                                    <div className="col-md-5">
+                                        <div className="m-5">
+                                            <FontAwesomeIcon style={{ fontSize: '20px', marginRight: '5px' }} icon={faGamepad} bounce />
+                                            <span> Platform: {this.state.game.platform}</span> <br />
+                                        </div>
+                                        <div className="m-5">
+                                            <FontAwesomeIcon style={{ fontSize: '20px', marginRight: '5px' }} icon={faGamepad} bounce />
+                                            <span> Stock: {this.state.game.stock}</span> <br />
+                                        </div>
+                                        <div className="m-5">
+                                            <FontAwesomeIcon style={{ fontSize: '20px', marginRight: '5px' }} icon={faGamepad} bounce />
+                                            <span> Rating {this.state.game.rating}<FontAwesomeIcon icon={faStar} style={{ color: "#FFD43B", }} /></span>
+                                        </div>
 
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="row mt-8">
-                            <div className="col-8">
+                            <div className="col-12 col-md-8 col-sm-8">
                                 <h3>{this.state.game.name}</h3>
                                 <p className="mb-5 mt-3">
                                     {this.state.game.note}
                                 </p>
                                 <h3 className="mb-5"> <FontAwesomeIcon icon={faImage} style={{ color: "#fe501b", marginRight: '10px' }} />Game Screenshot</h3>
-                                <div className="rounded mb-5">
+                                <div className="rounded mb-5 ">
                                     <div
                                         className="carousel slide"
                                         id="carouselDemo"
@@ -478,7 +487,7 @@ class DetailProductComponent extends Component {
                                                         title={`Video ${index}`}
                                                         frameBorder={0}
                                                         allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                                        allowFullScreen=""
+                                                        allowFullScreen
                                                     />
                                                 </div>
                                             ))}
@@ -503,7 +512,7 @@ class DetailProductComponent extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-4">
+                            <div className="col-md-4 col-sm-4 col-12">
                                 <h3 className="mb-3">Others Game</h3>
                                 <div className="row">
                                     <div className="col-12 mb-5">

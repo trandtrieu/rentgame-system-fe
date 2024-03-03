@@ -264,11 +264,11 @@ class FeedbackComponent extends Component {
                     <div
                         class="modal fade modal-lg "
                         style={{
-                            // maxWidth: "10000px",
-                            // width: "100p0x",
-                            // margin: "0 auto",
-                            // marginTop: "",
-                            // paddingRight: "0",
+                            maxWidth: "10000px",
+                            width: "100p0x",
+                            margin: "0 auto",
+                            marginTop: "",
+                            paddingRight: "0",
                         }}
                         id={`myModal`}
                         role="dialog"
@@ -278,7 +278,7 @@ class FeedbackComponent extends Component {
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h4 style={{ textAlign: "center" }} class="modal-title">
-                                        Review Product <b></b>
+                                        Review Game <b></b>
                                     </h4>
                                     <button type="button" class="close" data-dismiss="modal">
                                         &times;

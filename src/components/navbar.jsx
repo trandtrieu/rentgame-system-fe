@@ -28,12 +28,12 @@ const navbar = () => {
                 >
                   <img
                     className="w-100 logo1"
-                    src="assets/img/favicon.png"
+                    src="../assets/img/favicon.png"
                     alt="favicon"
                   />
                   <img
                     className="w-100 logo2"
-                    src="assets/img/logo.png"
+                    src="../assets/img/logo.png"
                     alt="logo"
                   />
                 </Link>
@@ -113,7 +113,7 @@ const navbar = () => {
                   <div className="img-area overflow-hidden">
                     <img
                       className="w-100"
-                      src="assets/img/profile.png"
+                      src="../assets/img/profile.png"
                       alt="profile"
                     />
                   </div>

@@ -20,7 +20,7 @@ export default function ConnectWallet() {
                                     <div className="wallet-item-thumb">
                                         <img
                                             className="w-100"
-                                            src="assets/img/metamask.png"
+                                            src="../assets/img/metamask.png"
                                             alt="metamask"
                                         />
                                     </div>
@@ -32,7 +32,7 @@ export default function ConnectWallet() {
                                     <div className="wallet-item-thumb">
                                         <img
                                             className="w-100"
-                                            src="assets/img/walletconnect.png"
+                                            src="../assets/img/walletconnect.png"
                                             alt="wallet connect"
                                         />
                                     </div>
