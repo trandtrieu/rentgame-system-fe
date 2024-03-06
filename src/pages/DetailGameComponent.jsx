@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import { toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+    faDollarSign,
     faFileInvoice,
     faGamepad,
     faHeart,
     faImage,
+    faMoneyBill,
     faStar,
     faVideo,
 } from "@fortawesome/free-solid-svg-icons";
@@ -20,14 +22,15 @@ import gameServices from "../services/gameServices";
 import { AuthContext } from "../context/authContext";
 import Footer from "../layouts/Footer";
 import FeedbackComponent from "./FeedbackComponent";
+import StarRating from "./StarRating";
 
 class DetailProductComponent extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            //   productId: this.props.match.params.productId,
-            gameId: 2,
+            gameId: this.props.match.params.gameId,
+            // gameId: 2,
 
             game: {},
             games: [],
@@ -43,9 +46,6 @@ class DetailProductComponent extends Component {
         this.openReply = this.openReply.bind(this);
         this.hiddenReply = this.hiddenReply.bind(this);
         this.starRating = this.starRating.bind(this);
-        // this.deleteFeedback = this.deleteFeedback.bind(this);
-        this.handleRatingChange = this.handleRatingChange.bind(this);
-        this.changeOpinion = this.changeOpinion.bind(this);
         this.changeReply = this.changeReply.bind(this);
         this.postReply = this.postReply.bind(this);
     }
@@ -68,13 +68,14 @@ class DetailProductComponent extends Component {
                 this.props.history.push("/home");
             });
 
-        // ProductServices.get5ProductsRandom()
-        //     .then((res) => {
-        //         this.setState({ products: res.data });
-        //     })
-        //     .catch((error) => {
-        //         console.error("Lỗi khi tải sản phẩm:", error);
-        //     });
+        gameServices.get5GamesRandom()
+            .then((res) => {
+                this.setState({ games: res.data });
+                console.log(this.state.games);
+            })
+            .catch((error) => {
+                console.error("Lỗi khi tải sản phẩm:", error);
+            });
 
         FeedbackServices.getAverageRatingByGameId(this.state.gameId).then(
             (res) => {
@@ -206,67 +207,11 @@ class DetailProductComponent extends Component {
         return ratingPercentage;
     }
 
-    handleRatingChange = (e) => {
-        const selectedRating = parseInt(e.target.value, 10);
-        this.setState({ rating: selectedRating });
-
-        // Cập nhật nội dung của thẻ <p> dựa trên giá trị chọn
-        switch (selectedRating) {
-            case 1:
-                this.setState({ ratingText: "Disappointed" });
-                break;
-            case 2:
-                this.setState({ ratingText: "Dissatisfied" });
-                break;
-            case 3:
-                this.setState({ ratingText: "Normal" });
-                break;
-            case 4:
-                this.setState({ ratingText: "Satisfy" });
-                break;
-            case 5:
-                this.setState({ ratingText: "Excellent" });
-                break;
-            default:
-                this.setState({ ratingText: "Unrated" });
-        }
-        console.log(selectedRating);
-    };
-
-    changeOpinion = (e) => {
-        this.setState({ opinion: e.target.value });
-        console.log(e.target.value);
-    };
     changeReply = (e) => {
         this.setState({ replyByFeedback: e.target.value });
         console.log(e.target.value);
     };
-    postFeedback = (e) => {
-        e.preventDefault();
-        const { accountId, token } = this.context;
 
-        if (this.state.opinion.trim() === "") {
-            toast.error("Opinion cannot be empty");
-        } else if (this.state.rating < 1 || this.state.rating > 5) {
-            toast.error("Rating must be between 1 and 5");
-        } else {
-            let feedback = {
-                comment: this.state.opinion,
-                rating: this.state.rating,
-            };
-            FeedbackServices.addFeedback(
-                this.state.gameId,
-                accountId,
-                feedback,
-                token
-            ).then((res) => {
-                toast.success("Feedback submitted successfully");
-            });
-            // setTimeout(() => {
-            //   window.location.reload();
-            // }, 1500);
-        }
-    };
 
     postReply = (feedbackId) => {
         // e.preventDefault();
@@ -310,36 +255,13 @@ class DetailProductComponent extends Component {
         }
         return stars;
     };
-    // handleQuantityChange = (change) => {
-    //     // Hàm này cập nhật số lượng dựa trên sự thay đổi (+1 hoặc -1)
-    //     this.setState((prevState) => {
-    //         const newQuantity = prevState.quantity + change;
-    //         return { quantity: newQuantity };
-    //     });
-    // };
-    // handleAddToCart = async (productId, quantity) => {
-    //     const { accountId, token } = this.context;
-    //     await addProductToCart(accountId, productId, quantity, token);
-    //     await window.location.reload();
-    // };
-    // handleAddtoWishlist = (productId) => {
-    //     const { accountId, token } = this.context;
-    //     addWishListProduct(accountId, productId, token);
-    // };
-    // createPrescription = () => {
-    //     const { accountId, token } = this.context;
 
-    //     if (accountId && token) {
-    //         this.props.history.push(`/create-prescription`);
-    //     } else {
-    //         this.props.history.push(`/login`);
-    //     }
-    // };
     render() {
         const { accountId, token } = this.context;
 
         return (
             <>
+
                 <div className="tournament-details pb-10 pt-120 mt-lg-0 mt-sm-15 mt-10 overflow-hidden">
                     <div className="container">
                         <div className="row mb-5">
@@ -352,6 +274,7 @@ class DetailProductComponent extends Component {
                                     >
                                         <i className="ti ti-arrow-narrow-left fs-2xl" />
                                     </a>
+                                    <div className="red-ball bot-50" />
                                     <h3 className="tcn-1 cursor-scale growDown title-anim">Game Name</h3>
                                 </div>
                             </div>
@@ -360,7 +283,7 @@ class DetailProductComponent extends Component {
                             <div className="col-md-3 col-sm-12">
                                 <picture>
                                     <img
-                                        style={{ height: 300 }}
+                                        style={{ height: '300px', objectFit: 'none' }}
                                         src={`../assets/img/${this.state.imageUrls[0]}`}
                                         className="img-fluid img-thumbnail w-100 rounded "
                                         alt="..."
@@ -368,7 +291,7 @@ class DetailProductComponent extends Component {
                                 </picture>
                             </div>
                             <div className="col-md-9">
-                                <h3 className="mt-sm-4 mt-col-4">{this.state.game.name}</h3>
+                                <h3 className="tcn-1 cursor-scale growDown title-anim mt-sm-4 mt-col-4">{this.state.game.name}</h3>
                                 <p className="mt-4 mb-4">
                                     {this.state.game.describe}
                                 </p>
@@ -399,7 +322,7 @@ class DetailProductComponent extends Component {
                                         </div>
                                         <div className="m-5">
                                             <FontAwesomeIcon style={{ fontSize: '20px', marginRight: '5px' }} icon={faGamepad} bounce />
-                                            <span> Rating {this.state.game.rating}<FontAwesomeIcon icon={faStar} style={{ color: "#FFD43B", }} /></span>
+                                            <span> Rating {this.state.game.rating} <FontAwesomeIcon icon={faStar} style={{ color: "#FFD43B", }} /></span>
                                         </div>
 
                                     </div>
@@ -407,12 +330,12 @@ class DetailProductComponent extends Component {
                             </div>
                         </div>
                         <div className="row mt-8">
-                            <div className="col-12 col-md-8 col-sm-8">
-                                <h3>{this.state.game.name}</h3>
+                            <div className="col-12 col-md-8 col-sm-12">
+                                <h3 className="tcn-1 cursor-scale growDown title-anim">{this.state.game.name}</h3>
                                 <p className="mb-5 mt-3">
                                     {this.state.game.note}
                                 </p>
-                                <h3 className="mb-5"> <FontAwesomeIcon icon={faImage} style={{ color: "#fe501b", marginRight: '10px' }} />Game Screenshot</h3>
+                                <h3 className="tcn-1 cursor-scale growDown title-anim mb-5"> <FontAwesomeIcon icon={faImage} style={{ color: "#fe501b", marginRight: '10px' }} />Game Screenshot</h3>
                                 <div className="rounded mb-5 ">
                                     <div
                                         className="carousel slide"
@@ -466,7 +389,7 @@ class DetailProductComponent extends Component {
 
                                     </div>
                                 </div>
-                                <h3 style={{ marginTop: 50 }} className="mb-5">
+                                <h3 style={{ marginTop: 50 }} className="tcn-1 cursor-scale growDown title-anim mb-5">
                                     <FontAwesomeIcon icon={faVideo} style={{ color: "#f84b1a", marginRight: '10px' }} />
                                     Game videos{" "}
                                 </h3>
@@ -512,33 +435,54 @@ class DetailProductComponent extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-md-4 col-sm-4 col-12">
-                                <h3 className="mb-3">Others Game</h3>
+                            <div className="col-12 col-sm-12 col-md-4  ">
+                                <div className="red-ball bot-50" />
+                                <div className="red-ball top-50" />
+
+                                <h3 className="tcn-1 cursor-scale growDown title-anim mb-3">Others Game</h3>
                                 <div className="row">
-                                    <div className="col-12 mb-5">
-                                        <div style={{ position: "relative" }}>
-                                            <img
-                                                src="assets/img/game-xx13.png"
-                                                className="img-fluid img-thumbnail  rounded "
-                                                alt="..."
-                                            />
-                                            <h5 style={{ position: "absolute", bottom: 0, left: 10 }}>
-                                                God of War Chains of Olympus Việt Hóa (PSP)
-                                            </h5>
+                                    {this.state.games.map((game, index) => (
+                                        <div className="tournament-card p-xl-4 p-3 ">
+                                            <div className="red-ball bot-50" />
+
+                                            <div className="tournament-img mb-8 position-relative ">
+
+                                                <div className="img-area overflow-hidden">
+                                                    <a href={`/detail-game/${game.id}`}>
+                                                        <img
+                                                            className="w-100 rounded"
+                                                            src={`../assets/img/${game.imageUrls[0]}`}
+                                                        />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div className="tournament-content px-xl-4 px-sm-2 ">
+                                                <div className="tournament-info mb-5">
+                                                    <a href={`/detail-game/${game.id}`} className="d-block">
+                                                        <h4 className="tournament-title tcn-1 mb-1 cursor-scale growDown title-anim">
+                                                            {game.name}
+                                                        </h4>
+                                                    </a>
+                                                </div>
+                                                {/* <div className="hr-line line3" /> */}
+                                                <div className="card-info d-flex align-items-center gap-3 flex-wrap my-5">
+                                                    <div className="price-money bgn-3 d-flex align-items-center gap-3 py-2 px-3 h-100">
+
+                                                        <div className="v-line" />
+                                                        <div className="d-flex align-items-center gap-2">
+                                                            <span className="tcn-1 fs-sm">{game.price} <FontAwesomeIcon icon={faMoneyBill} fade /></span>
+                                                        </div>
+                                                    </div>
+                                                    <div className="date-time bgn-3 d-flex align-items-center gap-1 py-2 px-3 h-100">
+                                                        <i className="ti ti-calendar fs-base tcn-1" />
+                                                        <span className="tcn-1 fs-sm">{game.date_released}</span>
+                                                    </div>
+                                                </div>
+                                                <div className="hr-line line3" />
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="col-12 mb-3">
-                                        <div style={{ position: "relative" }}>
-                                            <img
-                                                src="assets/img/game-xx13.png"
-                                                className="img-fluid img-thumbnail  rounded "
-                                                alt="..."
-                                            />
-                                            <h5 style={{ position: "absolute", bottom: 0, left: 10 }}>
-                                                God of War Chains of Olympus Việt Hóa (PSP)
-                                            </h5>
-                                        </div>
-                                    </div>
+                                    ))}
+
                                 </div>
                             </div>
                             <div className="container-fluid mb-5 mt-5">
@@ -553,15 +497,53 @@ class DetailProductComponent extends Component {
                                                 {this.state.average} {this.starRating(1)}
                                             </h2>{" "}
                                             <br />
-                                            <button
-                                                data-toggle="modal"
-                                                data-target={`#myModal`}
-                                                className="btn btn-info rounded "
-                                            >
-                                                Send Review
-                                            </button>
-                                            <p />
+                                            <>
+                                                {/* Button trigger modal */}
+                                                <button
+                                                    type="button"
+                                                    className="btn btn-primary"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal"
+                                                >
+                                                    Send Review
+                                                </button>
+                                                {/* Modal */}
+                                                <div
+                                                    className="modal fade"
+                                                    id="exampleModal"
+                                                    tabIndex={-1}
+                                                    aria-labelledby="exampleModalLabel"
+                                                    aria-hidden="true"
+
+                                                >
+                                                    <div style={{
+                                                        maxWidth: "700px",
+                                                        width: "70%",
+                                                        margin: "0 auto",
+                                                        marginTop: "10%",
+                                                        paddingRight: "0",
+                                                    }} className="modal-dialog">
+                                                        <div style={{ backgroundColor: '#000' }} className="modal-content">
+                                                            <div className="modal-header">
+
+                                                                <button
+                                                                    style={{ backgroundColor: '#FF9900' }}
+                                                                    type="button"
+                                                                    className="btn-close"
+                                                                    data-bs-dismiss="modal"
+                                                                    aria-label="Close"
+                                                                />
+                                                            </div>
+                                                            <div className="modal-body">
+                                                                <StarRating gameId={this.state.gameId} />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </>
+
                                         </div>
+
                                         <div className="col-md-9">
                                             <div className="row d-flex justify-content-center">
                                                 <div className="row col-md-12 col-sm-12 align-items-center">
@@ -685,6 +667,7 @@ class DetailProductComponent extends Component {
                                 </div>
                             </div>
                         </div>
+
                         <div className="row mt-8">
                             <FeedbackComponent
                                 gameId={this.state.gameId}
@@ -692,10 +675,15 @@ class DetailProductComponent extends Component {
                                 replies={this.state.replies}
                             />
                         </div>
+                        <div className="red-ball top-50" />
+                        <div className="tournament-wrapper m-5">
+                            <h1 className="tournament-wrapper-border">helo</h1>
+                        </div>
                     </div>
-                </div>
-                <Footer />
+                </div >
 
+
+                <Footer />
             </>
         );
     }

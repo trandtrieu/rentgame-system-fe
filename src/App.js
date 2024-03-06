@@ -9,6 +9,7 @@ import Register from "./layouts/Register";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import DetailProductComponent from "./pages/DetailGameComponent";
+import StarRating from "./pages/StarRating";
 function App() {
   return (
     <>
@@ -21,6 +22,8 @@ function App() {
             <Route path="/home" component={HomePage} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
+            <Route path="/test" component={StarRating} />
+
             <Route
               path="/detail-game/:gameId"
               component={DetailProductComponent}

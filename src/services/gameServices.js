@@ -26,7 +26,7 @@ class ProductServices {
         );
     }
 
-    get5ProductsRandom() {
+    get5GamesRandom() {
         return axios.get(GAME_API_BASE_URL + "/random");
     }
 

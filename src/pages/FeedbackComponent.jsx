@@ -20,7 +20,7 @@ class FeedbackComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            gameId: props.productId,
+            gameId: props.gameId,
             games: [],
             feedbacks: props.feedbacks,
             star: "",
@@ -93,83 +93,9 @@ class FeedbackComponent extends Component {
         }
     };
 
-    calculateStarRatingPercentage(starRating) {
-        const {
-            feedbackOneStar,
-            feedbackTwoStar,
-            feedbackThreeStar,
-            feedbackFourStar,
-            feedbackFiveStar,
-        } = this.state;
 
-        // Tính tổng số lượng feedback
-        const totalFeedback =
-            feedbackOneStar +
-            feedbackTwoStar +
-            feedbackThreeStar +
-            feedbackFourStar +
-            feedbackFiveStar;
 
-        if (totalFeedback === 0) {
-            return 0;
-        }
 
-        let ratingCount;
-        switch (starRating) {
-            case 1:
-                ratingCount = feedbackOneStar;
-                break;
-            case 2:
-                ratingCount = feedbackTwoStar;
-                break;
-            case 3:
-                ratingCount = feedbackThreeStar;
-                break;
-            case 4:
-                ratingCount = feedbackFourStar;
-                break;
-            case 5:
-                ratingCount = feedbackFiveStar;
-                break;
-            default:
-                ratingCount = 0;
-        }
-
-        const ratingPercentage = (ratingCount / totalFeedback) * 100;
-        return ratingPercentage;
-    }
-
-    handleRatingChange = (e) => {
-        const selectedRating = parseInt(e.target.value, 10);
-        this.setState({ rating: selectedRating });
-
-        // Cập nhật nội dung của thẻ <p> dựa trên giá trị chọn
-        switch (selectedRating) {
-            case 1:
-                this.setState({ ratingText: "Disappointed" });
-                break;
-            case 2:
-                this.setState({ ratingText: "Dissatisfied" });
-                break;
-            case 3:
-                this.setState({ ratingText: "Normal" });
-                break;
-            case 4:
-                this.setState({ ratingText: "Satisfy" });
-                break;
-            case 5:
-                this.setState({ ratingText: "Excellent" });
-                break;
-            default:
-                this.setState({ ratingText: "Unrated" });
-        }
-        console.log(selectedRating);
-    };
-
-    changeOpinion = (e) => {
-        this.setState({ opinion: e.target.value });
-        console.log(e.target.value);
-    };
     changeReply = (e) => {
         this.setState({ replyByFeedback: e.target.value });
         console.log(e.target.value);
@@ -189,7 +115,7 @@ class FeedbackComponent extends Component {
             };
 
             FeedbackServices.addFeedback(
-                this.state.productId,
+                this.state.gameId,
                 accountId,
                 feedback,
                 token
@@ -225,9 +151,9 @@ class FeedbackComponent extends Component {
                 toast.success("Reply submitted successfully");
             });
 
-            setTimeout(() => {
-                window.location.reload();
-            }, 1000);
+            // setTimeout(() => {
+            //     window.location.reload();
+            // }, 1000);
         }
     };
 
@@ -260,127 +186,7 @@ class FeedbackComponent extends Component {
         return (
             <div className="container-fluid mb-5 mt-5">
                 {/* model send review */}
-                <div class="container">
-                    <div
-                        class="modal fade modal-lg "
-                        style={{
-                            maxWidth: "10000px",
-                            width: "100p0x",
-                            margin: "0 auto",
-                            marginTop: "",
-                            paddingRight: "0",
-                        }}
-                        id={`myModal`}
-                        role="dialog"
-                    >
-                        <div style={{ maxWidth: "700px" }} class="modal-dialog">
-                            {/* <!-- Modal content--> */}
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 style={{ textAlign: "center" }} class="modal-title">
-                                        Review Game <b></b>
-                                    </h4>
-                                    <button type="button" class="close" data-dismiss="modal">
-                                        &times;
-                                    </button>
-                                </div>
-                                <div className=" container row mt-3">
-                                    <div className="col-md-3 col-sm-3 ">
-                                        <img
-                                            style={{ width: "100%", height: "100%" }}
-                                            // src={this.state.product.imageUrls}
-                                            // src={
-                                            //   this.state.product.imageUrls[0]?.startsWith("https")
-                                            //     ? this.state.product.imageUrls[0]
-                                            //     : `../assets/images/${this.state.product.imageUrls[0]}`
-                                            // }
-                                            alt="loi"
-                                            srcSet=""
-                                            width={100}
-                                        />
-                                    </div>
-                                    <div className="col-md-9 col-sm-9 d-flex align-items-center ">
-                                        {/* <h4>{this.state.product.name}</h4> */}
-                                    </div>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="">
-                                        <div
-                                            style={{
-                                                height: "30px",
-                                                marginBottom: "0.5rem",
-                                                fontSize: "1.3rem",
-                                            }}
-                                            className="rating mt-3 mb-3"
-                                        >
-                                            <input type="number" name="rating" hidden />
-                                            <select
-                                                required
-                                                value={this.state.rating}
-                                                style={{
-                                                    width: "20%",
-                                                    textAlign: "center",
-                                                    outline: "none",
-                                                }}
-                                                className="form-select rounded"
-                                                name=""
-                                                id=""
-                                                onChange={this.handleRatingChange}
-                                            >
-                                                <option value="0" selected>
-                                                    Star
-                                                </option>
-                                                <option value="1"> 1 Star </option>
-                                                <option value="2"> 2 Star </option>
-                                                <option value="3"> 3 Star </option>
-                                                <option value="4"> 4 Star </option>
-                                                <option value="5"> 5 Star </option>
-                                            </select>
-                                            <div
-                                                style={{
-                                                    width: "30%",
-                                                    marginLeft: "7%",
-                                                }}
-                                            >
-                                                {this.starRating(this.state.rating)}
-                                            </div>
-                                            <div>
-                                                <p
-                                                    style={{
-                                                        marginBottom: "0.5rem",
-                                                        marginTop: "12px",
-                                                        color: "#FFBD13",
-                                                    }}
-                                                    id="ratingText"
-                                                >
-                                                    {this.state.ratingText}
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <textarea
-                                            onChange={this.changeOpinion}
-                                            name="opinion"
-                                            cols="30"
-                                            rows="5"
-                                            placeholder="Your opinion..."
-                                            required
-                                        ></textarea>
-                                        <div className="btn btn-info rounded">
-                                            <button
-                                                onClick={this.postFeedback}
-                                                style={{ color: "#fff" }}
-                                                type="submit"
-                                                className="btn submit"
-                                            >
-                                                Submit
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 <div className="card">
                     <div className="row">
                         {!this.props.feedbacks || this.props.feedbacks.length === 0 ? (
