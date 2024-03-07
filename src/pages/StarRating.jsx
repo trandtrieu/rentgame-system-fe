@@ -17,19 +17,48 @@ class StarRating extends Component {
         this.changeOpinion = this.changeOpinion.bind(this);
 
     }
+    // changeOpinion = (e) => {
+    //     this.setState({ opinion: e.target.value });
+    //     console.log(e.target.value);
+    // };
     changeOpinion = (e) => {
-        this.setState({ opinion: e.target.value });
-        console.log(e.target.value);
+        const opinion = e.target.value.trim();
+        const limit = 255; // Giới hạn ký tự
+        const textLength = opinion.length;
+
+        // Cập nhật ký tự đếm trước khi cập nhật state
+        const result = document.getElementById("result");
+        result.textContent = textLength + "/" + limit;
+
+        // if (textLength <= limit) {
+        // Cập nhật state opinion
+        this.setState({ opinion });
+        // }
+
+        // Kiểm tra và cập nhật màu sắc
+        const myText = document.getElementById("my-text");
+        if (textLength > limit) {
+            myText.style.borderColor = "#fe501b";
+            result.style.color = "#fe501b";
+        } else {
+            myText.style.borderColor = "#b2b2b2";
+            result.style.color = "#737373";
+        }
+        // console.log("opinion:", this.state.opinion.length);
     };
+
     postFeedback = (e) => {
         e.preventDefault();
         const { accountId, token } = this.context;
-
         if (this.state.opinion.trim() === "") {
             toast.error("Opinion cannot be empty");
-        } else if (this.state.rating < 1 || this.state.rating > 5) {
+        } else if (this.state.opinion.length > 255) {
+            toast.error("Opinion cannot exceed 255 characters");
+        }
+        else if (this.state.rating < 1 || this.state.rating > 5) {
             toast.error("Rating must be between 1 and 5");
-        } else {
+        }
+        else {
             let feedback = {
                 comment: this.state.opinion,
                 rating: this.state.rating,
@@ -42,9 +71,9 @@ class StarRating extends Component {
             ).then((res) => {
                 toast.success("Feedback submitted successfully");
             });
-            setTimeout(() => {
-                window.location.reload();
-            }, 1500);
+            // setTimeout(() => {
+            //     window.location.reload();
+            // }, 1500);
         }
     };
 
@@ -91,7 +120,8 @@ class StarRating extends Component {
                 })}
 
                 <span > {rating === null ? (<h2 style={{ margin: '20px' }}> </h2>) : (<h2 style={{ margin: '20px' }}>{this.getStatus().status} <span style={{ margin: '0 5px' }}></span> {this.getStatus().icon}</h2>)}</span>
-                <textarea onChange={this.changeOpinion} style={{ outline: 'none' }} className='rounded w-100' placeholder='Type your reply' name="" id="" cols="60" rows="5"></textarea>
+                <textarea id="my-text" onChange={this.changeOpinion} style={{ outline: 'none' }} className='rounded w-100' placeholder='Type your reply' name="" cols="60" rows="5"></textarea>
+                <p style={{ textAlign: 'right' }} id="result"></p>
                 <div className="modal-footer">
                     <button onClick={this.postFeedback} type="button" className="btn btn-primary">
                         Post
