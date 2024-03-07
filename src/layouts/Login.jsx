@@ -28,7 +28,7 @@ export default function Login() {
       [name]: value,
     });
 
-    if (name === "email") {
+    if (name === "username") {
       const mailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
       const isValidMail = mailRegex.test(value);
 
@@ -37,7 +37,7 @@ export default function Login() {
         mail: isValidMail ? "" : "Invalid email address",
       });
     } else if (name === "password") {
-      const passwordRegex = !/^.{8,16}$/;
+      const passwordRegex = /^.{8,16}$/; // Remove the "!" here
       const isValidPassword = passwordRegex.test(value);
       setErrors({
         ...errors,
@@ -109,6 +109,7 @@ export default function Login() {
         }
 
         history.push("/");
+        toast.success("Login successfully");
       }
     } catch (error) {
       console.error("Error", error);
@@ -127,10 +128,12 @@ export default function Login() {
                 <form onSubmit={handleLoginSubmit} className="sign-in-form">
                   <div className="single-input mb-6">
                     <input
-                      type="username"
+                      type="text"
                       placeholder="Enter your username"
                       name="username"
                       id="username"
+                      value={loginFormData.username}
+                      onChange={handleLoginChange}
                     />
                   </div>
                   <div className="single-input mb-6">
@@ -139,6 +142,8 @@ export default function Login() {
                       placeholder="Enter your password"
                       id="password"
                       name="password"
+                      value={loginFormData.password}
+                      onChange={handleLoginChange}
                     />
                   </div>
                   <div className="text-center">

@@ -15,6 +15,10 @@ class UserService {
     // Pass the config object as the second parameter
     return axios.get(USER_API_BASE_URL + "/" + accountId, config);
   }
+
+  getTopPayment() {
+    return axios.get(USER_API_BASE_URL + "/top3");
+  }
 }
 
 export default new UserService();

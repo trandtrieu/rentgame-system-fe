@@ -1,9 +1,49 @@
-import React from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useEffect, useState } from "react";
 import ConnectWallet from "../layouts/ConnectWallet";
 import Notification from "../layouts/Notification";
-import { Link } from "react-router-dom/cjs/react-router-dom";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom";
+import { useAuth } from "../context/authContext";
+import UserServices from "../services/UserServices";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
 
-const navbar = () => {
+const Navbar = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState(null);
+  const [account, setAccount] = useState({});
+  const history = useHistory();
+
+  const { accountId, token } = useAuth();
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("id");
+    localStorage.removeItem("accountId");
+    setIsLoggedIn(false);
+    setUsername(null);
+    window.location.reload();
+    window.location.href = "/home";
+  };
+
+  const handleLogin = () => {
+    history.push("/login");
+  };
+  useEffect(() => {
+    UserServices.getInfoUser(accountId, token)
+      .then((response) => {
+        setAccount(response.data);
+        console.log("Account info:", response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching account:", error);
+      });
+    if (token) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, [accountId, token]);
+
   return (
     <>
       <div className="cursor" />
@@ -60,39 +100,16 @@ const navbar = () => {
                     </ul>
                   </li>
                   <li className="menu-link">
-                    <a href="game.html">Game</a>
+                    <Link to="/search">Game</Link>
                   </li>
-                  <li className="menu-item">
-                    <button>Teams</button>
-                    <ul className="sub-menu">
-                      <li className="menu-link">
-                        <a href="teams.html">Teams</a>
-                      </li>
-                      <li className="menu-link">
-                        <a href="teams-details.html">Teams Details</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="menu-item">
-                    <button>pages</button>
-                    <ul className="sub-menu">
-                      <li className="menu-link">
-                        <a href="signup.html">Sign Up</a>
-                      </li>
-                      <li className="menu-link">
-                        <a href="signin.html">Sign In</a>
-                      </li>
-                      <li className="menu-link">
-                        <a href="error.html">Error</a>
-                      </li>
-                      <li className="menu-link">
-                        <a href="faq.html">Faq</a>
-                      </li>
-                      <li className="menu-link">
-                        <a href="terms-condition.html">Terms Conditions</a>
-                      </li>
-                    </ul>
-                  </li>
+
+                  {isLoggedIn ? (
+                    <li className="menu-link">
+                      <a onClick={handleLogout} type="button">
+                        Log out
+                      </a>
+                    </li>
+                  ) : null}
                 </ul>
               </div>
             </nav>
@@ -108,34 +125,48 @@ const navbar = () => {
               <button className="ntf-btn box-style fs-2xl">
                 <i className="ti ti-bell-filled" />
               </button>
-              <div className="header-profile pointer">
-                <div className="profile-wrapper d-flex align-items-center gap-3">
-                  <div className="img-area overflow-hidden">
-                    <img
-                      className="w-100"
-                      src="assets/img/profile.png"
-                      alt="profile"
-                    />
+              {isLoggedIn ? (
+                <div
+                  className="header-profile pointer"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  <div className="profile-wrapper d-flex align-items-center gap-3">
+                    <div className="img-area overflow-hidden">
+                      <img
+                        className="w-100"
+                        src="assets/img/profile.png"
+                        alt="profile"
+                      />
+                    </div>
+                    {account && account.username && (
+                      <span className="user-name d-none d-xxl-block text-nowrap">
+                        {account.username}
+                      </span>
+                    )}
+                    <i className="ti ti-chevron-down d-none d-xxl-block" />
                   </div>
-                  <span className="user-name d-none d-xxl-block text-nowrap">
-                    David Malan
-                  </span>
-                  <i className="ti ti-chevron-down d-none d-xxl-block" />
                 </div>
-              </div>
+              ) : (
+                <button
+                  className="ntf-btn box-style fs-2xl"
+                  onClick={handleLogin}
+                >
+                  <FontAwesomeIcon icon={faRightToBracket} />{" "}
+                </button>
+              )}
             </div>
           </div>
         </div>
       </header>
       <Notification />
       <ConnectWallet />
-      {/* user account details popup start  */}
-      <>
+
+      {isLoggedIn && (
         <div className="user-account-popup p-4">
           <div className="account-items d-grid gap-1" data-tilt="">
             <div className="user-level-area p-3">
               <div className="user-info d-between">
-                <span className="user-name fs-five">David Malan</span>
+                <span className="user-name fs-five">Trieu</span>
                 <div className="badge d-flex align-items-center">
                   <i className="ti ti-medal fs-three fs-normal tcp-2" />
                   <i className="ti ti-medal fs-three fs-normal tcp-2" />
@@ -155,12 +186,16 @@ const navbar = () => {
             <a href="chat.html" className="account-item">
               Message
             </a>
-            <button className="bttn account-item">Logout</button>
+
+            {isLoggedIn ? (
+              <button onClick={handleLogout} className="bttn account-item">
+                Logout
+              </button>
+            ) : null}
           </div>
         </div>
-      </>
-      {/* user account details popup end  */}
+      )}
     </>
   );
 };
-export default navbar;
+export default Navbar;

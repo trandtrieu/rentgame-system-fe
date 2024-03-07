@@ -8,6 +8,7 @@ import Login from "./layouts/Login";
 import Register from "./layouts/Register";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import SearchProduct from "./layouts/SearchProduct";
 function App() {
   return (
     <>
@@ -20,6 +21,7 @@ function App() {
             <Route path="/home" component={HomePage} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
+            <Route path="/search" component={SearchProduct} />
           </Switch>
         </Router>
       </AuthProvider>
