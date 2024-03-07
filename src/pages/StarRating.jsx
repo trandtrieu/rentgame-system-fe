@@ -71,9 +71,9 @@ class StarRating extends Component {
             ).then((res) => {
                 toast.success("Feedback submitted successfully");
             });
-            // setTimeout(() => {
-            //     window.location.reload();
-            // }, 1500);
+            setTimeout(() => {
+                window.location.reload();
+            }, 1500);
         }
     };
 
