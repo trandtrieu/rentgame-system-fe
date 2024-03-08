@@ -9,8 +9,8 @@ import Footer from "../layouts/Footer";
 export default function HomePage() {
   return (
     <>
-      <div className="cursor" />
 
+      <div className="cursor" />
       <HeroSection />
       <Swiper3DSection />
       <TopPlayer />

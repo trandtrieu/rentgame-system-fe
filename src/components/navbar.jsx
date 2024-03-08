@@ -68,12 +68,12 @@ const Navbar = () => {
                 >
                   <img
                     className="w-100 logo1"
-                    src="assets/img/favicon.png"
+                    src="../assets/img/favicon.png"
                     alt="favicon"
                   />
                   <img
                     className="w-100 logo2"
-                    src="assets/img/logo.png"
+                    src="../assets/img/logo.png"
                     alt="logo"
                   />
                 </Link>

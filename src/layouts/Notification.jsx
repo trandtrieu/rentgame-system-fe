@@ -9,7 +9,7 @@ export default function Notification() {
                         <div className="card-img-area">
                             <img
                                 className="w-100 rounded-circle"
-                                src="assets/img/avatar1.png"
+                                src="../assets/img/avatar1.png"
                                 alt="profile"
                             />
                         </div>
@@ -26,7 +26,7 @@ export default function Notification() {
                         <div className="card-img-area">
                             <img
                                 className="w-100 rounded-circle"
-                                src="assets/img/avatar2.png"
+                                src="../assets/img/avatar2.png"
                                 alt="profile"
                             />
                         </div>
@@ -63,7 +63,7 @@ export default function Notification() {
                         <div className="card-img-area">
                             <img
                                 className="w-100 rounded-circle"
-                                src="assets/img/avatar1.png"
+                                src="../assets/img/avatar1.png"
                                 alt="profile"
                             />
                         </div>
@@ -80,7 +80,7 @@ export default function Notification() {
                         <div className="card-img-area">
                             <img
                                 className="w-100 rounded-circle"
-                                src="assets/img/avatar2.png"
+                                src="../assets/img/avatar2.png"
                                 alt="profile"
                             />
                         </div>

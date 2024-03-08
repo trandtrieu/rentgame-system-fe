@@ -5,6 +5,7 @@ import axios from "axios";
 import PlatformsServices from "../services/PlatformsServices";
 import SearchGamesServices from "../services/SearchGamesServices";
 import { convertDollarToVND } from "../util/convert";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function SearchProduct() {
   const [games, setGames] = useState([]);
@@ -21,6 +22,7 @@ export default function SearchProduct() {
     sortType: "",
   });
   const pageSize = 4;
+  const history = useHistory();
 
   useEffect(() => {
     fetchData();
@@ -158,6 +160,9 @@ export default function SearchProduct() {
     }
 
     return params;
+  };
+  const viewProduct = (gameId) => {
+    history.push(`/detail-game/${gameId}`);
   };
   return (
     <>
@@ -400,7 +405,11 @@ export default function SearchProduct() {
                                 </div>
                               </div>
                               {/* click de xem chi tiet */}
-                              <a href="tournaments-details.html" class="btn2">
+                              <a
+                                class="btn2"
+                                type="btn"
+                                onClick={() => viewProduct(game.id)}
+                              >
                                 <i class="ti ti-arrow-right fs-2xl"></i>
                               </a>
                             </div>

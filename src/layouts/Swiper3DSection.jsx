@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import GamesServices from "../services/GamesServices";
+import { convertDollarToVND } from "../util/convert";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function Swiper3DSection() {
   const [games, setGames] = useState([]);
+  const history = useHistory();
+
   useEffect(() => {
     GamesServices.getListGamesHome()
       .then((res) => {
@@ -14,6 +18,9 @@ export default function Swiper3DSection() {
       });
   }, []);
 
+  const viewProduct = (gameId) => {
+    history.push(`/detail-game/${gameId}`);
+  };
   return (
     <section className="swiper-3d-section position-relative z-1" id="swiper-3d">
       <div className="container">
@@ -37,7 +44,10 @@ export default function Swiper3DSection() {
                       <span className="dot-icon alt-icon ps-3">Hot</span>
                     </span>
                   </div>
-                  <h5 className="card-title text-center tcn-1 mb-4 title-anim">
+                  <h5
+                    className="card-title text-center tcn-1 mb-4 title-anim"
+                    onClick={() => viewProduct(gamesItems.id)}
+                  >
                     {gamesItems.name}
                   </h5>
                   <div className="d-center">
@@ -48,9 +58,11 @@ export default function Swiper3DSection() {
                           src="assets/img/bitcoin.png"
                           alt="bitcoin"
                         />
-                        <span className="tcn-1 fs-xs">{gamesItems.price}</span>
+                        <span className="tcn-1 fs-xs">
+                          {convertDollarToVND(gamesItems.price)}/hr
+                        </span>
                       </div>
-                      <div className="v-line" />
+                      {/* <div className="v-line" />
                       <div className="d-flex align-items-center gap-2">
                         <img
                           className="w-100"
@@ -58,7 +70,7 @@ export default function Swiper3DSection() {
                           alt="tether"
                         />
                         <span className="tcn-1 fs-xs">$49.97777</span>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>
