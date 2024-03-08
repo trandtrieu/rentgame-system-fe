@@ -2,7 +2,7 @@ import axios from "axios";
 
 const GAME_API_BASE_URL = "http://localhost:8080/rent-game/games";
 
-class ProductServices {
+class gameServices {
     getProducts() {
         return axios.get(GAME_API_BASE_URL);
     }
@@ -130,4 +130,4 @@ class ProductServices {
     }
 }
 // eslint-disable-next-line import/no-anonymous-default-export
-export default new ProductServices();
+export default new gameServices();
