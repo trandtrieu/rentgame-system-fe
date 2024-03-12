@@ -2,10 +2,17 @@ import React, { useEffect, useState } from "react";
 import GamesServices from "../services/GamesServices";
 import { convertDollarToVND } from "../util/convert";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { useAuth } from "../context/authContext";
+import { useCart } from "../context/CartProvider";
+import addWishListGame from "../util/Wishlist";
 
 export default function Swiper3DSection() {
   const [games, setGames] = useState([]);
   const history = useHistory();
+  const { accountId, token } = useAuth();
+  const { updateWishlistItemCount } = useCart();
 
   useEffect(() => {
     GamesServices.getListGamesHome()
@@ -17,10 +24,18 @@ export default function Swiper3DSection() {
         console.error("Lỗi khi tải sản phẩm:", error);
       });
   }, []);
-
+  const handleAddtoWishlist = async (productId) => {
+    try {
+      await addWishListGame(accountId, productId, token);
+      await updateWishlistItemCount();
+    } catch (error) {
+      console.error("Error adding product to cart:", error);
+    }
+  };
   const viewProduct = (gameId) => {
     history.push(`/detail-game/${gameId}`);
   };
+
   return (
     <section className="swiper-3d-section position-relative z-1" id="swiper-3d">
       <div className="container">
@@ -62,15 +77,15 @@ export default function Swiper3DSection() {
                           {convertDollarToVND(gamesItems.price)}/hr
                         </span>
                       </div>
-                      {/* <div className="v-line" />
+                      <div className="v-line" />
                       <div className="d-flex align-items-center gap-2">
-                        <img
-                          className="w-100"
-                          src="assets/img/tether.png"
-                          alt="tether"
-                        />
-                        <span className="tcn-1 fs-xs">$49.97777</span>
-                      </div> */}
+                        <button
+                          className="box-style"
+                          onClick={() => handleAddtoWishlist(gamesItems.id)}
+                        >
+                          <FontAwesomeIcon icon={faHeart} />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>

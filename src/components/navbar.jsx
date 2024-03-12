@@ -6,13 +6,15 @@ import { Link, useHistory } from "react-router-dom/cjs/react-router-dom";
 import { useAuth } from "../context/authContext";
 import UserServices from "../services/UserServices";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faRightToBracket } from "@fortawesome/free-solid-svg-icons";
+import { useCart } from "../context/CartProvider";
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState(null);
   const [account, setAccount] = useState({});
   const history = useHistory();
+  const { wishlistItemCount, updateWishlistItemCount } = useCart();
 
   const { accountId, token } = useAuth();
   const handleLogout = () => {
@@ -42,7 +44,8 @@ const Navbar = () => {
     } else {
       setIsLoggedIn(false);
     }
-  }, [accountId, token]);
+    updateWishlistItemCount();
+  }, [accountId, token, updateWishlistItemCount]);
 
   return (
     <>
@@ -125,6 +128,14 @@ const Navbar = () => {
               <button className="ntf-btn box-style fs-2xl">
                 <i className="ti ti-bell-filled" />
               </button>
+              <button
+                className="ntf-btn box-style fs-2xl"
+                style={{ position: "relative" }}
+              >
+                <FontAwesomeIcon icon={faHeart} />
+                <span className="notification-count">{wishlistItemCount}</span>
+              </button>
+
               {isLoggedIn ? (
                 <div
                   className="header-profile pointer"

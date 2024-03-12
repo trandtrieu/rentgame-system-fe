@@ -1,6 +1,11 @@
+import React, { useState, useEffect } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  useHistory,
+} from "react-router-dom";
 import { AuthProvider } from "./context/authContext";
 import Navbar from "./components/navbar";
 import HomePage from "./components/HomePage";
@@ -12,12 +17,47 @@ import SearchProduct from "./layouts/SearchProduct";
 import DetailProductComponent from "./pages/DetailGameComponent";
 import StarRating from "./pages/StarRating";
 import AppWrapper from "./util/AppWrapper";
+import { CartProvider } from "./context/CartProvider";
+
 function App() {
   return (
+    <Router>
+      <AppContent />
+    </Router>
+  );
+}
+
+function AppContent() {
+  const [showPreloader, setShowPreloader] = useState(true);
+  const history = useHistory();
+
+  useEffect(() => {
+    setShowPreloader(false);
+
+    const unlisten = history.listen(() => {
+      setShowPreloader(true);
+
+      setTimeout(() => {
+        setShowPreloader(false);
+      }, 1000);
+    });
+
+    return () => {
+      unlisten();
+    };
+  }, [history]);
+
+  return (
     <>
+      {showPreloader && (
+        <div className="preloader">
+          <div className="loader">
+            <span></span>
+          </div>
+        </div>
+      )}
       <AuthProvider>
-        <Router>
-          {" "}
+        <CartProvider>
           <AppWrapper>
             <ToastContainer />
             <Navbar />
@@ -28,14 +68,13 @@ function App() {
               <Route path="/register" component={Register} />
               <Route path="/search" component={SearchProduct} />
               <Route path="/test" component={StarRating} />
-
               <Route
                 path="/detail-game/:gameId"
                 component={DetailProductComponent}
               />
-            </Switch>{" "}
+            </Switch>
           </AppWrapper>
-        </Router>
+        </CartProvider>
       </AuthProvider>
     </>
   );

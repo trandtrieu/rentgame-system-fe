@@ -30,10 +30,11 @@ export default function SearchProduct() {
 
   const fetchData = () => {
     setSearching(true);
+    fetchCategories();
+    fetchPlatforms();
     const timer = setTimeout(() => {
       fetchGames();
-      fetchCategories();
-      fetchPlatforms();
+
       fetchKeywords();
       setSearching(false);
     }, 1000);
@@ -41,7 +42,7 @@ export default function SearchProduct() {
   };
 
   const fetchGames = () => {
-    const apiUrl = "http://localhost:8080/rent-game/games/search";
+    const apiUrl = "http://localhost:8080/rent-game/games/search2";
     const params = formatParams();
 
     console.log("API Request:", apiUrl, "with Params:", params);
@@ -149,7 +150,17 @@ export default function SearchProduct() {
     };
 
     if (filters.sortType) {
-      params.sortType = filters.sortType;
+      if (filters.sortType === "1000-5000") {
+        params.minPrice = 1000;
+        params.maxPrice = 5000;
+      } else if (filters.sortType === "5000-10000") {
+        params.minPrice = 5000;
+        params.maxPrice = 10000;
+      } else if (filters.sortType === "10000") {
+        params.minPrice = 10000;
+      } else {
+        params.sortType = filters.sortType;
+      }
     }
 
     if (selectedCategoryIds.length > 0) {
@@ -161,6 +172,7 @@ export default function SearchProduct() {
 
     return params;
   };
+
   const viewProduct = (gameId) => {
     history.push(`/detail-game/${gameId}`);
   };
@@ -227,11 +239,20 @@ export default function SearchProduct() {
                     onChange={handleSortTypeChange}
                     value={filters.sortType}
                   >
-                    <option value="asc" className="select-option">
+                    <option value="desc" className="select-option">
                       Highest
                     </option>
-                    <option value="desc" className="select-option">
+                    <option value="asc" className="select-option">
                       Lowest
+                    </option>
+                    <option value="1000-5000" className="select-option">
+                      From 1000 to 5000
+                    </option>
+                    <option value="5000-10000" className="select-option">
+                      From 5000 to 10000
+                    </option>
+                    <option value="10000" className="select-option">
+                      Bigger than 10000
                     </option>
                   </select>
                 </div>

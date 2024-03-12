@@ -23,6 +23,8 @@ import { AuthContext } from "../context/authContext";
 import Footer from "../layouts/Footer";
 import FeedbackComponent from "./FeedbackComponent";
 import StarRating from "./StarRating";
+import { convertDollarToVND } from "../util/convert";
+import { getAccountById } from "../services/AccountService";
 
 class DetailProductComponent extends Component {
   constructor(props) {
@@ -34,6 +36,7 @@ class DetailProductComponent extends Component {
       games: [],
       imageUrls: [],
       categories: [],
+      platforms: [],
       videoUrls: [],
       feedbacks: [],
       replies: [],
@@ -66,7 +69,16 @@ class DetailProductComponent extends Component {
         console.error("Error fetching game:", error);
         this.props.history.push("/home");
       });
+    const { accountId, token } = this.context;
 
+    getAccountById(accountId, token)
+      .then((response) => {
+        this.setState({ account: response.data });
+        console.log("Account info:", response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching account:", error);
+      });
     gameServices
       .get5GamesRandom()
       .then((res) => {
@@ -277,7 +289,7 @@ class DetailProductComponent extends Component {
               <div className="col-md-3 col-sm-12">
                 <picture>
                   <img
-                    style={{ height: "300px", objectFit: "none" }}
+                    style={{ height: "300px", objectFit: "inherit" }}
                     src={`../assets/img/${this.state.imageUrls[0]}`}
                     className="img-fluid img-thumbnail w-100 rounded "
                     alt="..."
@@ -299,7 +311,7 @@ class DetailProductComponent extends Component {
                       />
                       <span>
                         {" "}
-                        Date Released: {this.state.game.date_released}
+                        Date Released: {this.state.game.dateReleased}
                       </span>{" "}
                       <br />
                     </div>
@@ -309,7 +321,12 @@ class DetailProductComponent extends Component {
                         icon={faGamepad}
                         bounce
                       />
-                      <span> Price: {this.state.game.price}</span> <br />
+                      <span>
+                        {" "}
+                        Price: {convertDollarToVND(this.state.game.price)} VND
+                        per hour
+                      </span>{" "}
+                      <br />
                     </div>
                     <div className="m-5">
                       <FontAwesomeIcon
@@ -317,18 +334,27 @@ class DetailProductComponent extends Component {
                         icon={faGamepad}
                         bounce
                       />
-                      <span> Age Limit: {this.state.game.age_limit}</span>
+                      <span> Age Limit: {this.state.game.ageLimit}</span>
                     </div>
                   </div>
                   <div className="col-md-5">
-                    <div className="m-5">
+                    {/* <div className="m-5">
                       <FontAwesomeIcon
                         style={{ fontSize: "20px", marginRight: "5px" }}
                         icon={faGamepad}
                         bounce
                       />
-                      <span> Platform: {this.state.game.platform}</span> <br />
-                    </div>
+                      <span>
+                        {" "}
+                        Categories:
+                        {this.state.categories.map((category) => (
+                          <li key={category} style={{ paddingRight: "9px" }}>
+                            {category}
+                          </li>
+                        ))}{" "}
+                      </span>{" "}
+                      <br />
+                    </div> */}
                     <div className="m-5">
                       <FontAwesomeIcon
                         style={{ fontSize: "20px", marginRight: "5px" }}
@@ -420,6 +446,7 @@ class DetailProductComponent extends Component {
                           className={index === 0 ? "active" : ""}
                           data-bs-target="#carouselDemo"
                           data-bs-slide-to={index}
+                          age
                         >
                           <img
                             style={{ width: "70px", height: "45px" }}
@@ -506,6 +533,7 @@ class DetailProductComponent extends Component {
                             <img
                               className="w-100 rounded"
                               src={`../assets/img/${game.imageUrls[0]}`}
+                              style={{ height: "300px", width: "400px" }}
                             />
                           </a>
                         </div>
@@ -739,9 +767,6 @@ class DetailProductComponent extends Component {
               />
             </div>
             <div className="red-ball top-50" />
-            <div className="tournament-wrapper m-5">
-              <h1 className="tournament-wrapper-border">helo</h1>
-            </div>
           </div>
         </div>
 
